@@ -1,11 +1,10 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { StyleSheet, View, Image } from "react-native";
 import { Button, Caption, Text, TextInput } from "react-native-paper";
 import { Context as AuthContext } from "../../providers/AuthContext";
 import { validate } from "email-validator";
-import theme from "../../theme";
-
-function SignupForm() {
+import theme from "../../theme/index"
+function SignupForm({ navigation }) {
   const { state, signup } = useContext(AuthContext);
   const [fullname, setFullname] = useState("");
   const [email, setEmail] = useState("");
@@ -16,6 +15,11 @@ function SignupForm() {
   const [passwordError, setPasswordError] = useState(false);
   const [confirmPasswordError, setConfirmPasswordError] = useState(false);
   const [error, setError] = useState(false);
+
+  // Verificar si el usuario se registra en la app
+  useEffect(() => {
+    if (state.registered) navigation.navigate("Home");
+  }, [state.registered]);
 
   function handleVerify(input) {
     if (input === "fullname") {
@@ -55,34 +59,33 @@ function SignupForm() {
 
   return (
     <View>
-      <Text style={styles.title}>Sign Up</Text>
-          <Image
+      {error && <Text>{error}</Text>}
+      {state.errorMessage != null && <Text>{state.errorMessage}</Text>}
+     <Text style={styles.title}>SIGN UP</Text>
+      <Image
  style={styles.usuario}
  source={require('../../img/register.png')}
 />
-      {error && <Text>{error}</Text>}
-      {state.errorMessage && <Text>{state.errorMessage}</Text>}
       <TextInput
-       style={styles.input}
         mode="outlined"
         label="Fullname"
         value={fullname}
         onChangeText={setFullname}
         onBlur={() => handleVerify("fullname")}
+        style={styles.input}
       />
-      {fullnameError && <Caption style={styles.Caption}>Please enter your name</Caption>}
+      {fullnameError && <Caption style={styles.caption}>Please enter your name</Caption>}
       <TextInput
-       style={styles.input}
         mode="outlined"
         label="Email"
         value={email}
         onChangeText={setEmail}
         autoCapitalize="none"
         onBlur={() => handleVerify("email")}
-      />
-      {emailError && <Caption style={styles.Caption}>Please enter your email address</Caption>}
+        style={styles.input}
+     />
+      {emailError && <Caption style={styles.caption}>Please enter your email address</Caption>}
       <TextInput
-       style={styles.input}
         mode="outlined"
         label="Password"
         value={password}
@@ -90,12 +93,12 @@ function SignupForm() {
         autoCapitalize="none"
         secureTextEntry
         onBlur={() => handleVerify("password")}
+        style={styles.input}
       />
       {passwordError && (
-        <Caption style={styles.Caption}>Please enter a valid password. Min 6 characters</Caption>
+        <Caption style={styles.caption}>Please enter a valid password. Min 6 characters</Caption>
       )}
       <TextInput
-       style={styles.input}
         mode="outlined"
         label="Confirm password"
         value={confirmPassword}
@@ -103,9 +106,10 @@ function SignupForm() {
         autoCapitalize="none"
         secureTextEntry
         onBlur={() => handleVerify("confirmPassword")}
-      />
+        style={styles.input}
+    />
       {confirmPasswordError && (
-        <Caption  style={styles.Caption} >Please enter your password confirmation</Caption>
+        <Caption style={styles.caption}>Please enter your password confirmation</Caption>
       )}
       <Button
         mode="contained"
@@ -120,33 +124,29 @@ function SignupForm() {
 
 const styles = StyleSheet.create({
   button: {
-    marginTop: 20,
+    marginTop: 110,
     marginBottom: 20,
-    backgroundColor: theme.colors.red,
-    position: "relative",
-    borderRadius: 60,
-    top: 120
+    backgroundColor: theme.colors.red, 
+    borderRadius: 50
   },
+  caption: {
+    color: theme.colors.white
+  }, 
   usuario: {
     width: 120,
     height:120, 
-    alignSelf:"center",
-    top: 70
+    alignSelf:"center", 
+    top: 50
  },
- input: {
-   top: 100, 
-   marginTop: 5
+ title:{
+   marginTop: 60,
+   color: theme.colors.white, 
+   textAlign: "center", 
+   fontSize: 18
  }, 
- title: {
-  fontSize: 24,
-  fontStyle:"italic", 
-  fontWeight: "bold", 
-  textAlign: "center", 
-  color: theme.colors.white,
-  marginTop: -50
-},
- Caption: {
-   color: theme.colors.white
+ input: {
+  top: 80, 
+  marginTop: 5
  }
 });
 

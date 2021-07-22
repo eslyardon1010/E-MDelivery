@@ -4,18 +4,16 @@ import { Provider as PaperProvider } from "react-native-paper";
 import theme from "./src/theme";
 import Navigation from "./src/components/navigation";
 import { Provider as AuthProvider } from "./src/providers/AuthContext";
-import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
+import LongTimers from "./src/utils/LongTimer";
 
-const Stack = createStackNavigator();
 export default function App() {
+  LongTimers();
+
   return (
-   
     <AuthProvider>
       <PaperProvider theme={theme}>
         <Navigation />
       </PaperProvider>
     </AuthProvider>
-    
   );
 }

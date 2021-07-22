@@ -29,7 +29,6 @@ const styles = StyleSheet.create({
     color: theme.colors.red,
   },
   txt: {
-    marginTop: 110,
     color: theme.colors.white
   },
  
