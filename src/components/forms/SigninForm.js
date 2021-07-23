@@ -4,7 +4,7 @@ import { Button, Caption, Text, TextInput,  } from "react-native-paper";
 import theme from "../../theme";
 import { Context as AuthContext } from "../../providers/AuthContext";
 
-function SigninForm() {
+function SigninForm(navigation) {
     const { state, signin } = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
     marginTop: 170, 
     borderRadius: 60
   },
-  input : {
+  input: {
     top: 140, 
     marginTop: 20
   },

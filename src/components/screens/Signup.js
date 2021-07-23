@@ -6,8 +6,7 @@ import SignupForm from "../forms/SignupForm";
 
 function Signup({ navigation }) {
   return (
-    <View style={styles.container}>
-      
+    <View style={styles.container}>      
       <SignupForm />
       <TouchableOpacity onPress={() => navigation.goBack()}>
         <Text style={styles.txt} >
