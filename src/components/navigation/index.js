@@ -7,7 +7,9 @@ import Signin from "../screens/Signin";
 import Signup from "../screens/Signup";
 import Home from "../screens/Home";
 import First from "../screens/First"
+import AcountInformation from "../screens/AcountInformation"
 
+import SearchResults from "../screens/SearchResults"
 const Stack = createStackNavigator();
 
 function Navigation() {
@@ -31,6 +33,9 @@ function Navigation() {
           {state.loggedIn ? (
             <Stack.Navigator>
               <Stack.Screen name="Home" component={Home}/>
+              <Stack.Screen name="AcountInformation" component={AcountInformation}/>
+              
+            
             </Stack.Navigator>
           ) : (
             <Stack.Navigator screenOptions={{ headerShown: false }}>
