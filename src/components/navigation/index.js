@@ -8,8 +8,9 @@ import Signup from "../screens/Signup";
 import Home from "../screens/Home";
 import First from "../screens/First"
 import AcountInformation from "../screens/AcountInformation"
+import FoodInfo from '../screens/FoodInfo'
 
-import SearchResults from "../screens/SearchResults"
+import FoodScreen from "../screens/FoodsScreen";
 const Stack = createStackNavigator();
 
 function Navigation() {
@@ -32,10 +33,11 @@ function Navigation() {
         <>
           {state.loggedIn ? (
             <Stack.Navigator>
-              <Stack.Screen name="Home" component={Home}/>
-              <Stack.Screen name="AcountInformation" component={AcountInformation}/>
-              
-            
+              <Stack.Screen name="Home" component={Home} />
+              <Stack.Screen name="AcountInformation" component={AcountInformation} />
+   <Stack.Screen name="Food" component={FoodScreen} />
+               <Stack.Screen name="FoodInfo" component={FoodInfo} />
+
             </Stack.Navigator>
           ) : (
             <Stack.Navigator screenOptions={{ headerShown: false }}>

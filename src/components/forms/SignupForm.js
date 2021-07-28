@@ -72,7 +72,7 @@ function SignupForm({ navigation }) {
         value={fullname}
         onChangeText={setFullname}
         onBlur={() => handleVerify("fullname")}
-        style={styles.input}
+        style={styles.infullnameput}
       />
       {fullnameError && <Caption style={styles.caption}>Please enter your name</Caption>}
       <TextInput
