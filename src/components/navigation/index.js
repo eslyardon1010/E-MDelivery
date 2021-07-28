@@ -9,6 +9,8 @@ import Home from "../screens/Home";
 import First from "../screens/First"
 import AcountInformation from "../screens/AcountInformation"
 import FoodInfo from '../screens/FoodInfo'
+import ClothsAccesoriesScreen from '../screens/ClothsAccesoriesScreen'
+import SuperMarketScreen from '../screens/SuperMarketScreen'
 
 import FoodScreen from "../screens/FoodsScreen";
 const Stack = createStackNavigator();
@@ -37,6 +39,8 @@ function Navigation() {
               <Stack.Screen name="AcountInformation" component={AcountInformation} />
    <Stack.Screen name="Food" component={FoodScreen} />
                <Stack.Screen name="FoodInfo" component={FoodInfo} />
+               <Stack.Screen name="ClothesAccesories" component={ClothsAccesoriesScreen} />
+              <Stack.Screen name="Supermarket" component={SuperMarketScreen} />
 
             </Stack.Navigator>
           ) : (
