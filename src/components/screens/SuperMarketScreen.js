@@ -71,7 +71,7 @@ const MarketScreen = ({navigation}) => {
             keyExtractor={(item)=> item.id}
             renderItem={({item})=> {
                 return(
-                    <TouchableOpacity onPress={()=>{navigation.navigate(""),{informacion: item.title}}}>
+                    <TouchableOpacity onPress={()=>{navigation.navigate("SupermercadoInfo", {informacion: item.title})}}>
 
                         <View>
                         <Text  style={styles.title}>{item.title}</Text>

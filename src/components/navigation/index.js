@@ -14,6 +14,8 @@ import SuperMarketScreen from '../screens/SuperMarketScreen';
 import prueba from '../screens/prueba';
 import FoodScreen from "../screens/FoodsScreen";
 import MedicineScreen from '../screens/MedicineScreen';
+import MedicineInfo from '../screens/MedicineInfo';
+import SuperMarketInfo from '../screens/SuperMarketInfo';
 const Stack = createStackNavigator();
 
 function Navigation() {
@@ -44,6 +46,8 @@ function Navigation() {
                <Stack.Screen name="Medicina" component={MedicineScreen} />
 <Stack.Screen name="Supermercado" component={SuperMarketScreen} />
 <Stack.Screen name="prueba" component={prueba} />
+<Stack.Screen name="InformacionMedicina" component={MedicineInfo} />
+<Stack.Screen name="SupermercadoInfo" component={SuperMarketInfo} />
 
             </Stack.Navigator>
           ) : (
