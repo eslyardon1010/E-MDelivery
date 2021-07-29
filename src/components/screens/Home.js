@@ -19,26 +19,26 @@ function Home({navigation}) {
       </View>
 
        <SearchBar navigation = {navigation}/>
-       <TouchableOpacity onPress={() => {navigation.navigate("Food")}} style={styles.button}> 
-            <Text style={styles.Text}>FOOD</Text>
+       <TouchableOpacity onPress={() => {navigation.navigate("Comida")}} style={styles.button}> 
+            <Text style={styles.Text}>COMIDA</Text>
             <Image
                style={styles.img}
       source={require('../../../src/img/iconos/fast-food.png')} />
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => {navigation.navigate("Medicine")}} style={styles.button}> 
-            <Text style={styles.Text}>MEDICINE</Text>
+        <TouchableOpacity onPress={() => {navigation.navigate("Medicina")}} style={styles.button}> 
+            <Text style={styles.Text}>MEDICINA</Text>
             <Image
                style={styles.img}
       source={require('../../../src/img/iconos/medicine.png')} />
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => {navigation.navigate("ClothesAccesories")}} style={styles.button}> 
-            <Text style={styles.Text}>CLOTHES & ACCESORIES</Text>
+        <TouchableOpacity onPress={() => {navigation.navigate("Ropa-Accesorios")}} style={styles.button}> 
+            <Text style={styles.Text}>ROPA & ACCESORIOS</Text>
             <Image
                style={styles.img}
       source={require('../../../src/img/iconos/search.png')} />
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => {navigation.navigate("Supermarket")}} style={styles.button}> 
-            <Text style={styles.Text}>SUPERMARKET</Text>
+        <TouchableOpacity onPress={() => {navigation.navigate("Supermercado")}} style={styles.button}> 
+            <Text style={styles.Text}>SUPER MERCADO</Text>
             <Image
                style={styles.img}
       source={require('../../../src/img/iconos/grocery-cart.png')} />

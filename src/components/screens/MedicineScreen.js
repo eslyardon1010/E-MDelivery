@@ -5,59 +5,43 @@ import theme from "../../theme";
 import SearchBar from "../../shared/SearchThings";
 
 const DATA = [
-      {  title: "Lacteos",
-      imgUrl: "https://i.ibb.co/Wt17Jd0/Lacteos.webp"
+  {  title: "Alimentario y Metabolismo",
+      imgUrl: "https://i.ibb.co/HTcTRmv/makeup.jpg"
   },
   {
-      title: "Carnes",
-      imgUrl: "https://i.ibb.co/XkNMjjT/carnes.jpg"
+      title: "Sangre y órganos",
+      imgUrl: "https://i.ibb.co/34XRfx5/sangre.jpg"
   },
   {
-        title: "Frutas",
-        imgUrl: "https://i.ibb.co/FsBHPSX/fruta.jpg" 
+        title: "Sistema cardiovascular",
+        imgUrl: "https://i.ibb.co/R67qJj9/cardiovasculas.png" 
     },
   {
-      title: "Mariscos",
-      imgUrl: "https://i.ibb.co/bbcDHF8/mariscos.jpg"
+      title: "Medicamentos dermatológicos ",
+      imgUrl: "https://i.ibb.co/k3pKF98/dermatologico.jpg"
   },
   {
-      title: "Alcoholicas",
-      imgUrl: "https://i.ibb.co/NKwPDCN/alcohol.jpg"
+      title: "Medicamentos genitourinario",
+      imgUrl: "https://i.ibb.co/5nt20rk/urinarias.jpg"
     },
    {
-       title: "Sodas",
-       imgUrl: "https://i.ibb.co/KGSx9W1/sodas.jpg"
+       title: "Medicamentos hormonales ",
+       imgUrl: "https://i.ibb.co/tPgZ76v/hormonales.jpg"
   },
   {
-      title: "Snacks",
-      imgUrl: "https://i.ibb.co/Zf0jf7n/snacks.jpg"
+      title: "Medicamentos Antiinfecciosos",
+      imgUrl: "https://i.ibb.co/zPq12Pp/main-producto-7.jpg"
   },
   {
-      title: "Cuidado Personal",
-      imgUrl: "https://i.ibb.co/bWSL0CH/accesorios.jpg"
+      title: "Medicamentos Huesos",
+      imgUrl: "https://i.ibb.co/SJ3tKWF/huesos.jpg"
     },
-  {
-      title: "Limpieza",
-      imgUrl: "https://i.ibb.co/8dmJSFv/limpieza.jpg"
-  },
-  {
-      title: "Mascotas",
-      imgUrl: "https://i.ibb.co/T1m9DYq/mascotas.jpg"
-    },
-      {
-      title: "Abarrotes",
-      imgUrl: "https://i.ibb.co/dbffKt4/abarrotes.jpg"
-  },
-  {
-      title: "Panaderia",
-      imgUrl: "https://i.ibb.co/mJFk5sP/panaderia.jpg"
-    },
-
+ 
 
 ];
 
 
-const MarketScreen = ({navigation}) => {
+const ClothScreen = ({navigation}) => {
 
     return (
          <ScrollView>
@@ -121,4 +105,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default MarketScreen;
+export default ClothScreen;

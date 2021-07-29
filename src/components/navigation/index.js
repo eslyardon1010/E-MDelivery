@@ -37,10 +37,10 @@ function Navigation() {
             <Stack.Navigator>
               <Stack.Screen name="Home" component={Home} />
               <Stack.Screen name="AcountInformation" component={AcountInformation} />
-   <Stack.Screen name="Food" component={FoodScreen} />
-               <Stack.Screen name="FoodInfo" component={FoodInfo} />
-               <Stack.Screen name="ClothesAccesories" component={ClothsAccesoriesScreen} />
-              <Stack.Screen name="Supermarket" component={SuperMarketScreen} />
+   <Stack.Screen name="Comida" component={FoodScreen} />
+               <Stack.Screen name="ComidaInformacion" component={FoodInfo} />
+               <Stack.Screen name="Ropa-Accesorios" component={ClothsAccesoriesScreen} />
+              <Stack.Screen name="Supermercado" component={SuperMarketScreen} />
 
             </Stack.Navigator>
           ) : (

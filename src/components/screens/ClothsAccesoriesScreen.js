@@ -13,8 +13,8 @@ const DATA = [
       imgUrl: "https://i.ibb.co/1s7SKZy/perfumes.jpg"
   },
   {
-        title: "Skin-Care",
-        imgUrl: "https://i.ibb.co/DKqrKDt/skincare.jpg" 
+        title: "Carteras",
+        imgUrl: "https://i.ibb.co/R6WqjZm/arno-senoner-o-CXVxw-TFwq-E-unsplash.jpg" 
     },
   {
       title: "Jeans",

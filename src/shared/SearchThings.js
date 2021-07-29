@@ -14,7 +14,7 @@ const SearchBar = ({navigation}) => {
 
   return (
     <Searchbar
-      placeholder="Search by name"
+      placeholder="Buscar por nombre"
       onChangeText={onChangeSearch}
       value={searchQuery}
       onIconPress={()=>  { navigation.navigate("SearchResults")}}

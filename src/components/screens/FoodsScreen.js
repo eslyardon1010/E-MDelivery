@@ -54,7 +54,7 @@ const FoodScreen = ({navigation}) => {
             keyExtractor={(item)=> item.id}
             renderItem={({item})=> {
                 return(
-                    <TouchableOpacity onPress={()=>{navigation.navigate("FoodInfo")}}>
+                    <TouchableOpacity onPress={()=>{navigation.navigate("ComidaInformacion")}}>
 
                         <View>
                         <Text  style={styles.title}>{item.title}</Text>

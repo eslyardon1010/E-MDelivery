@@ -26,7 +26,7 @@ function AboutInformation(navigation, email) {
 
   return (
     <View style={styles.container} >
-      <Title style={styles.title}>Acount Information</Title>
+      <Title style={styles.title}>Informacion de la cuenta</Title>
       <Image
         style={styles.usuario}
         source={require('../../img/user.png')}
