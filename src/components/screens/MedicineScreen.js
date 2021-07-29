@@ -56,7 +56,7 @@ const ClothScreen = ({navigation}, props) => {
             keyExtractor={(item)=> item.id}
             renderItem={({item})=> {
                 return(
-                    <TouchableOpacity onPress={()=>{navigation.navigate("prueba"),{informacion: item.title}})}}>
+                    <TouchableOpacity onPress={()=>{navigation.navigate("InformacionMedicina", {informacion: item.title})}}>
 
                         <View>
                         <Text  style={styles.title}>{item.title}</Text>
