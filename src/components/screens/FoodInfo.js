@@ -1,51 +1,82 @@
 import React, {useEffect, useState} from 'react'
-import { firebase } from '../../firebase/index'
+
 import 'firebase/firestore';
-import { ScrollView, View } from 'react-native';
-import { Text } from "react-native-paper";
-import {ListItem} from 'react-native-elements'
-
-const infoFood = () => {
-
-    const [foods, setFoods] = useState([])
-    useEffect(() => {
-         firebase.firestore().collection("Food").where("type", "==", "Pizza")
-    .get()
-             .then((querySnapshot) => {
-        const foods = [];
-        querySnapshot.forEach((doc) => {
-                const { name, description, time } = doc.data()
-                foods.push(
-                    {
-                        id: doc.id,
-                        name,
-                        description,
-                        time
-                    }
-            )
-             console.log(doc.id, " => ", doc.data());
-            })
-            setFoods(foods)
-        });
-      
-    }, []);
-    return (
-        <ScrollView>
-            {
-                foods.map((food) => {
-                    return (
-                        <ListItem
-                            key={food.id}
-                        >
-                            <ListItem.Chevron />
-                            <ListItem.Content>
-                                <ListItem.Title>{food.name}</ListItem.Title>
-                            </ListItem.Content>
-                        </ListItem>
-                    );
-                })}
-      </ScrollView>
-);
+import { ScrollView, View, Text } from 'react-native';
+import { InfoFoodPizza, 
+    InfoFoodChicken,
+     InfoFoodSalad, 
+     InfoFoodMexican,
+      InfoFoodChinese, 
+      InfoFoodFast,
+       InfoFoodGourmet, 
+       InfoFoodPasta } from '../../firebase/consults';
+const infoFood = ({route, navigation}) => {
+    const {informacion} = route.params;
+    if (informacion == 'Pizza') {
+        return (
+            <View>
+            <ScrollView>
+                   <InfoFoodPizza food={informacion}/>  
+          </ScrollView>
+          </View>
+    ); 
+    }else if (informacion == "Chicken") {
+        return(
+            <View>
+            <ScrollView>
+                   <InfoFoodChicken food={informacion}/>  
+          </ScrollView>
+          </View>
+        );
+    }else if (informacion == "Pasta") {
+        return(
+            <View>
+            <ScrollView>
+                   <InfoFoodPasta food={informacion}/>  
+          </ScrollView>
+          </View>
+        );
+    }else if (informacion == "Salad") {
+        return(
+            <View>
+            <ScrollView>
+                   <InfoFoodSalad food={informacion}/>  
+          </ScrollView>
+          </View>
+        );
+    }else if (informacion == "Fast Food") {
+        return(
+            <View>
+            <ScrollView>
+                   <InfoFoodFast food={informacion}/>  
+          </ScrollView>
+          </View>
+        );
+    }else if (informacion == "Gourmet") {
+        return(
+            <View>
+            <ScrollView>
+                   <InfoFoodGourmet food={informacion}/>  
+          </ScrollView>
+          </View>
+        );
+    }else if (informacion == "Mexican") {
+        return(
+            <View>
+            <ScrollView>
+                   <InfoFoodMexican food={informacion}/>  
+          </ScrollView>
+          </View>
+        );
+    }else if (informacion == "Chinese") {
+        return(
+            <View>
+            <ScrollView>
+                   <InfoFoodChinese food={informacion}/>  
+          </ScrollView>
+          </View>
+        );
+    }
 }
 
 

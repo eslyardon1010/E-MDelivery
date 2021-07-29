@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, Component } from "react";
 import { ScrollView } from "react-native";
 import { FlatList, View, StatusBar, StyleSheet, Text, TouchableOpacity, Image } from "react-native";
 import theme from "../../theme";
 import SearchBar from "../../shared/SearchThings";
+import { getItem } from "../filter";
 
 const DATA = [
   {  title: "Alimentario y Metabolismo",
@@ -41,7 +42,7 @@ const DATA = [
 ];
 
 
-const ClothScreen = ({navigation}) => {
+const ClothScreen = ({navigation}, props) => {
 
     return (
          <ScrollView>
@@ -55,7 +56,7 @@ const ClothScreen = ({navigation}) => {
             keyExtractor={(item)=> item.id}
             renderItem={({item})=> {
                 return(
-                    <TouchableOpacity onPress={()=>{navigation.navigate("")}}>
+                    <TouchableOpacity onPress={()=>{navigation.navigate("prueba"),{informacion: item.title}})}}>
 
                         <View>
                         <Text  style={styles.title}>{item.title}</Text>

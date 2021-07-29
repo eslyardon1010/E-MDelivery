@@ -3,7 +3,7 @@ import { ScrollView } from "react-native";
 import { FlatList, View, StatusBar, StyleSheet, Text, TouchableOpacity, Image } from "react-native";
 import theme from "../../theme";
 import SearchBar from "../../shared/SearchThings";
-
+import { getItem } from "../filter";
 const DATA = [
   {
         title: "Pizza",
@@ -54,8 +54,7 @@ const FoodScreen = ({navigation}) => {
             keyExtractor={(item)=> item.id}
             renderItem={({item})=> {
                 return(
-                    <TouchableOpacity onPress={()=>{navigation.navigate("ComidaInformacion")}}>
-
+                    <TouchableOpacity onPress={()=>{navigation.navigate("ComidaInformacion", {informacion: item.title})}}>
                         <View>
                         <Text  style={styles.title}>{item.title}</Text>
                         </View>
