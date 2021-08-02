@@ -17,6 +17,7 @@ import MedicineInfo from '../screens/MedicineInfo';
 import SuperMarketInfo from '../screens/SuperMarketInfo';
 import {OrdenFood, OrdenMedicine, OrdenCloths, OrdenSuper} from '../screens/YourOrden'
 import YourOrdens from '../screens/YourOrdens'
+import ClothsAccesoriesInfo from '../screens/ClothsAccesoriesInfo'
 const Stack = createStackNavigator();
 
 function Navigation({navigation}) {
@@ -51,6 +52,8 @@ function Navigation({navigation}) {
                <Stack.Screen name="TuOrden" component={OrdenFood} />
                <Stack.Screen name="MedicinaOrden" component={OrdenMedicine} />
                <Stack.Screen name="SuperOrden" component={OrdenSuper} />
+               <Stack.Screen name="OrdenCloths" component={OrdenCloths} />  
+              <Stack.Screen name="InformacionCloths" component={ClothsAccesoriesInfo} />
                
                <Stack.Screen name="TusOrdenes" component={YourOrdens} />
             </Stack.Navigator>

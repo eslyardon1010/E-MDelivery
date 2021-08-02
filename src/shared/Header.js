@@ -38,7 +38,7 @@ export const HeaderGeneral = ({ navigation, route, options, back }) => {
 
     return (
       <Appbar.Header style={styles.header}>
-      back ?  <Appbar.BackAction onPress={navigation.goBack}/>
+      <Appbar.BackAction onPress={_goBack}/>
         <Appbar.Content title="E&M Delivery" />
       </Appbar.Header>
     );
