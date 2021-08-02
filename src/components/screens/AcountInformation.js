@@ -1,4 +1,4 @@
-import React, { useContext, Component } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { StyleSheet, View, Image } from "react-native";
 import { Button, Text, Title, TextInput } from "react-native-paper";
 import { Context as AuthContext } from "../../providers/AuthContext";
@@ -10,7 +10,7 @@ import { render } from "react-dom";
 
 function AboutInformation(navigation, email) {
   const { signout } = useContext(AuthContext);
-  
+
   const user = firebase.auth().currentUser;
   if (user !== null) {
     const uid = user.uid;
@@ -18,9 +18,10 @@ function AboutInformation(navigation, email) {
     const displayName = user.displayName;
     console.log(email);
     console.log(displayName);
-
-
     console.log(uid);
+
+
+  
   }
 
 
@@ -31,9 +32,10 @@ function AboutInformation(navigation, email) {
         style={styles.usuario}
         source={require('../../img/user.png')}
       />
-      <Text style={styles.txt}>{user.displayName}</Text>
-      <Text style={styles.txt}>{user.email}</Text>
-     
+      <View>
+      <Text style={styles.txt}>Correo electronico: {user.email}</Text>
+      <Text style={styles.txt}></Text>
+      </View>
 
       <Button style={styles.signout} onPress={signout}>Signout</Button>
     </View>

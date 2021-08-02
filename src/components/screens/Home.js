@@ -4,19 +4,15 @@ import { Button, Text } from "react-native-paper";
 //import { Context as AuthContext } from "../../providers/AuthContext";
 import theme from "../../theme";
 import SearchBar from "../../shared/SearchThings";
+import {HeaderHome} from '../../shared/Header'
 function Home({navigation}) {
 
 
   return (
     
     <View style={styles.container}>
-      <View style={styles.Info}>
-          <TouchableOpacity onPress={() => { navigation.navigate("AcountInformation") }} style={styles.buttonInfo}> 
-            <Image
-                 style={styles.imgInfo}
-      source={require('../../../src/img/user.png')} />
-        </TouchableOpacity>
-      </View>
+
+      <HeaderHome navigation = {navigation}/>
 
        <SearchBar navigation = {navigation}/>
        <TouchableOpacity onPress={() => {navigation.navigate("Comida")}} style={styles.button}> 
@@ -61,8 +57,9 @@ button: {
   backgroundColor: theme.colors.red,
   position: "relative",
   borderRadius: 60,
-  top: 30, 
-  height: 70
+  top: -20, 
+  height: 70,
+  marginTop: 5
 },
 Text: {
     color: theme.colors.white, 
@@ -76,32 +73,8 @@ img:{
  marginTop: -35, 
  marginLeft: 50
 }, 
-Info:{
-  backgroundColor: theme.colors.red, 
-  position: "relative",
-  top: -34, 
-  height: 65, 
-  width: 400,
-  marginLeft: -11
-}, 
-buttonInfo: {
-  width: 45,
-  height: 45,
-  marginLeft: 10,
-  top: 13,
-  justifyContent: 'center',
-  alignItems: 'center',
-  padding: 10,
-  borderRadius: 100,
-  backgroundColor: theme.colors.redDark,
-  alignSelf: "flex-start"
-}, 
-imgInfo:{
-height: 35, 
-width: 35, 
- 
 
-}
+
 });
 
 export default Home;

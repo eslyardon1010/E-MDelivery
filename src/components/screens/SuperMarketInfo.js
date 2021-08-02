@@ -15,6 +15,7 @@ import {
     InfoSuperPanaderia,
     InfoSuperSnacks
 } from '../../firebase/ConsultsSuperMarket';
+import { HeaderGeneral } from '../../shared/Header';
     
 const infoSuperMarket = ({route, navigation}) => {
     const { informacion } = route.params;
@@ -22,80 +23,91 @@ const infoSuperMarket = ({route, navigation}) => {
     if (informacion == 'Lacteos') {
         return (
             <View>
+                  <HeaderGeneral/>
             <ScrollView>
-                   <InfoSuperLacteos type={informacion}/>  
+                    <InfoSuperLacteos type={informacion} navigation={navigation}/>
           </ScrollView>
           </View>
     ); 
     }else if (informacion == "Carnes") {
         return(
             <View>
+                  <HeaderGeneral/>
             <ScrollView>
-                   <InfoSuperCarnes type={informacion}/>  
+                   <InfoSuperCarnes type={informacion} navigation={navigation}/>  
           </ScrollView>
           </View>
         );
     }else if (informacion == "Frutas") {
         return(
             <View>
+                  <HeaderGeneral/>
             <ScrollView>
-                   <InfoSuperFrutas type={informacion}/>  
+                   <InfoSuperFrutas type={informacion} navigation={navigation}/>  
           </ScrollView>
           </View>
         );
     }else if (informacion == "Mariscos") {
         return(
             <View>
+                <HeaderGeneral/>
             <ScrollView>
-                   <InfoSuperMariscos type={informacion}/>  
+                   <InfoSuperMariscos type={informacion} navigation={navigation}/>  
           </ScrollView>
           </View>
+     
         );
     }else if (informacion == "Alcoholicas") {
         return(
             <View>
+                <HeaderGeneral/>
             <ScrollView>
-                   <InfoSuperAlcoholicas type={informacion}/>  
+                   <InfoSuperAlcoholicas type={informacion} navigation={navigation}/>  
           </ScrollView>
           </View>
         );
     }else if (informacion == "Sodas") {
         return(
             <View>
+                <HeaderGeneral/>
             <ScrollView>
-                   <InfoSuperBebidas type={informacion}/>  
+                   <InfoSuperBebidas type={informacion} navigation={navigation}/>  
           </ScrollView>
           </View>
         );
     }else if (informacion == "Snacks") {
         return(
             <View>
+                <HeaderGeneral/>
             <ScrollView>
-                   <InfoSuperSnacks type={informacion}/>  
+                   <InfoSuperSnacks type={informacion} navigation={navigation}/>  
           </ScrollView>
           </View>
         );
     }else if (informacion == "Cuidado Personal") {
         return(
             <View>
+                <HeaderGeneral/>
             <ScrollView>
-                   <InfoSuperCuidado type={informacion}/>  
+                   <InfoSuperCuidado type={informacion} navigation={navigation}/>  
           </ScrollView>
           </View>
         );
     }else if (informacion == "Limpieza") {
         return(
             <View>
+                <HeaderGeneral/>
             <ScrollView>
-                   <InfoSuperLimpieza type={informacion}/>  
+                   <InfoSuperLimpieza type={informacion} navigation={navigation}/>  
           </ScrollView>
           </View>
         );
     }else if (informacion == "Mascotas") {
         return(
             <View>
+                <HeaderGeneral/>
             <ScrollView>
-                   <InfoSuperMascotas type={informacion}/>  
+                   <InfoSuperMascotas type={informacion} navigation={navigation}/>  
           </ScrollView>
           </View>
         );
@@ -103,16 +115,18 @@ const infoSuperMarket = ({route, navigation}) => {
     else if (informacion == "Abarrotes") {
         return(
             <View>
+                <HeaderGeneral/>
             <ScrollView>
-                   <InfoSuperAbarrotes type={informacion}/>  
+                   <InfoSuperAbarrotes type={informacion} navigation={navigation}/>  
           </ScrollView>
           </View>
         );
     }else if (informacion == "Panaderia") {
         return(
             <View>
+                <HeaderGeneral/>
             <ScrollView>
-                   <InfoSuperPanaderia type={informacion}/>  
+                   <InfoSuperPanaderia type={informacion} navigation={navigation}/>  
           </ScrollView>
           </View>
         );

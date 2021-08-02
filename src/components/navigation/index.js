@@ -11,14 +11,15 @@ import AcountInformation from "../screens/AcountInformation"
 import FoodInfo from '../screens/FoodInfo'
 import ClothsAccesoriesScreen from '../screens/ClothsAccesoriesScreen';
 import SuperMarketScreen from '../screens/SuperMarketScreen';
-import prueba from '../screens/prueba';
 import FoodScreen from "../screens/FoodsScreen";
 import MedicineScreen from '../screens/MedicineScreen';
 import MedicineInfo from '../screens/MedicineInfo';
 import SuperMarketInfo from '../screens/SuperMarketInfo';
+import {OrdenFood, OrdenMedicine, OrdenCloths, OrdenSuper} from '../screens/YourOrden'
+import YourOrdens from '../screens/YourOrdens'
 const Stack = createStackNavigator();
 
-function Navigation() {
+function Navigation({navigation}) {
   const { state, persistLogin } = useContext(AuthContext);
 
   // Verificar si existe un token de autenticación
@@ -37,18 +38,21 @@ function Navigation() {
       {!state.loading && (
         <>
           {state.loggedIn ? (
-            <Stack.Navigator>
+            <Stack.Navigator  screenOptions={{ headerShown: false }}>
               <Stack.Screen name="Home" component={Home} />
               <Stack.Screen name="AcountInformation" component={AcountInformation} />
-   <Stack.Screen name="Comida" component={FoodScreen} />
+              <Stack.Screen name="Comida" component={FoodScreen} />
                <Stack.Screen name="ComidaInformacion" component={FoodInfo} />
                <Stack.Screen name="Ropa-Accesorios" component={ClothsAccesoriesScreen} />
                <Stack.Screen name="Medicina" component={MedicineScreen} />
-<Stack.Screen name="Supermercado" component={SuperMarketScreen} />
-<Stack.Screen name="prueba" component={prueba} />
-<Stack.Screen name="InformacionMedicina" component={MedicineInfo} />
-<Stack.Screen name="SupermercadoInfo" component={SuperMarketInfo} />
-
+              <Stack.Screen name="Supermercado" component={SuperMarketScreen} />
+              <Stack.Screen name="InformacionMedicina" component={MedicineInfo} />
+              <Stack.Screen name="SupermercadoInfo" component={SuperMarketInfo} />
+               <Stack.Screen name="TuOrden" component={OrdenFood} />
+               <Stack.Screen name="MedicinaOrden" component={OrdenMedicine} />
+               <Stack.Screen name="SuperOrden" component={OrdenSuper} />
+               
+               <Stack.Screen name="TusOrdenes" component={YourOrdens} />
             </Stack.Navigator>
           ) : (
             <Stack.Navigator screenOptions={{ headerShown: false }}>

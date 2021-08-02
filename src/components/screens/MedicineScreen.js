@@ -3,7 +3,7 @@ import { ScrollView } from "react-native";
 import { FlatList, View, StatusBar, StyleSheet, Text, TouchableOpacity, Image } from "react-native";
 import theme from "../../theme";
 import SearchBar from "../../shared/SearchThings";
-import { getItem } from "../filter";
+import { HeaderGeneral } from "../../shared/Header";
 
 const DATA = [
   {  title: "Alimentario y Metabolismo",
@@ -47,8 +47,7 @@ const ClothScreen = ({navigation}, props) => {
     return (
          <ScrollView>
       <View style={styles.container}>
-       
-              <SearchBar navigation={navigation} />
+      <HeaderGeneral/>
               <View style={styles.containerflat}>
         <FlatList
               data={DATA}

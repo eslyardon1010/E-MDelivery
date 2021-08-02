@@ -38,6 +38,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.75,
     shadowRadius: 5,
     elevation: 9,
+    top: -50
   },});
 
 export default SearchBar;

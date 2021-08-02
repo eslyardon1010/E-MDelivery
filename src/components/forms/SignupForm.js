@@ -66,15 +66,16 @@ function SignupForm({ navigation }) {
  style={styles.usuario}
  source={require('../../img/register.png')}
 />
+      
+      {fullnameError && <Caption style={styles.caption}>Please enter your name</Caption>}
       <TextInput
         mode="outlined"
         label="Fullname"
         value={fullname}
         onChangeText={setFullname}
         onBlur={() => handleVerify("fullname")}
-        style={styles.infullnameput}
+        style={styles.input}
       />
-      {fullnameError && <Caption style={styles.caption}>Please enter your name</Caption>}
       <TextInput
         mode="outlined"
         label="Email"
@@ -124,7 +125,7 @@ function SignupForm({ navigation }) {
 
 const styles = StyleSheet.create({
   button: {
-    marginTop: 110,
+    marginTop: 40,
     marginBottom: 20,
     backgroundColor: theme.colors.red, 
     borderRadius: 50
@@ -135,18 +136,18 @@ const styles = StyleSheet.create({
   usuario: {
     width: 120,
     height:120, 
-    alignSelf:"center", 
-    top: 50
+    alignSelf:"center",
+top:10
  },
  title:{
-   marginTop: 60,
+   marginTop: 10,
    color: theme.colors.white, 
    textAlign: "center", 
    fontSize: 18
  }, 
  input: {
-  top: 80, 
-  marginTop: 5
+top: 30, 
+marginTop: 8
  }
 });
 

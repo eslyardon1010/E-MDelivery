@@ -75,22 +75,21 @@ function SigninForm(navigation) {
 
 const styles = StyleSheet.create({
   button: {
-    marginTop: 20,
     marginBottom: 20,
     backgroundColor: theme.colors.red,
     position: "relative",
-    marginTop: 170, 
+    marginTop: 100, 
     borderRadius: 60
   },
   input: {
-    top: 140, 
+    top: 80, 
     marginTop: 20
   },
   usuario: {
      width: 120,
      height:120, 
      alignSelf:"center", 
-     top: 80
+     top: 50
   },
   txt: {
     color: theme.colors.white,

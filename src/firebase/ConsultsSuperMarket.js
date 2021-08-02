@@ -1,11 +1,12 @@
 import React, {useEffect, useState} from 'react'
 import { firebase } from '../firebase/index';
 import 'firebase/firestore';
-import { ScrollView } from 'react-native';
-import {ListItem} from 'react-native-elements'
+import { ScrollView, StyleSheet } from 'react-native';
+import {ListItem, Button} from 'react-native-elements'
+import theme from '../theme/index'
+import { Avatar } from 'react-native-paper';
 
-
-export const InfoSuperLacteos = ({type}) => {
+export const InfoSuperLacteos = ({type, navigation}) => {
 
     const [lacteos, setLacteos] = useState([])
     useEffect(() => {
@@ -14,7 +15,7 @@ export const InfoSuperLacteos = ({type}) => {
              .then((querySnapshot) => {
         const lacteos = [];
         querySnapshot.forEach((doc) => {
-                const { name, description, time, price } = doc.data()
+                const { name, description, time, price,image } = doc.data()
                 lacteos.push(
                     {
                         id: doc.id,
@@ -22,9 +23,9 @@ export const InfoSuperLacteos = ({type}) => {
                         description,
                         time, 
                         price,
+                        image
                     }
             )
-             console.log(doc.id, " => ", doc.data());
             })
             setLacteos(lacteos)
         });
@@ -37,23 +38,34 @@ export const InfoSuperLacteos = ({type}) => {
             {
                 lacteos.map((lacteo) => {
                     return (
-                        <ListItem
-                            key={lacteo.id}
-                        >
+                        
+                        <ListItem.Swipeable
+                        key={lacteo.id}
+                       rightContent={
+                         <Button
+                           title="Comprar"
+                           onPress={()=>{navigation.navigate("SuperOrden", {orden: lacteo.id})}}
+                           buttonStyle={{ minHeight: '100%', backgroundColor: 'red' }}
+                         />
+                       }>
                             <ListItem.Chevron />
+                            <Avatar.Image size={40} source={{ uri :`${lacteo.image}` }}/>
                             <ListItem.Content>
                                 <ListItem.Title>{lacteo.name}</ListItem.Title>
+                                <ListItem.Subtitle>{lacteo.time}</ListItem.Subtitle>
+                                <ListItem.Subtitle style={styles.price}> $ {lacteo.price}</ListItem.Subtitle>    
                             </ListItem.Content>
-                        </ListItem>
+                        </ListItem.Swipeable>
                     );
-                })}
+                })
+            }
       </ScrollView>
 );
             
 }
 
 
-export const InfoSuperCarnes = ({type}) => {
+export const InfoSuperCarnes = ({type, navigation}) => {
 
     const [carnes, setCarnes] = useState([])
     useEffect(() => {
@@ -62,7 +74,7 @@ export const InfoSuperCarnes = ({type}) => {
              .then((querySnapshot) => {
         const carnes = [];
         querySnapshot.forEach((doc) => {
-                const { name, description, time, price } = doc.data()
+                const { name, description, time, price, image } = doc.data()
                 carnes.push(
                     {
                         id: doc.id,
@@ -70,9 +82,9 @@ export const InfoSuperCarnes = ({type}) => {
                         description,
                         time, 
                         price,
+                        image
                     }
             )
-             console.log(doc.id, " => ", doc.data());
             })
             setCarnes(carnes)
         });
@@ -85,14 +97,23 @@ export const InfoSuperCarnes = ({type}) => {
             {
                 carnes.map((carne) => {
                     return (
-                        <ListItem
-                            key={carne.id}
-                        >
+                        <ListItem.Swipeable
+                           key={carne.id}
+                          rightContent={
+                            <Button
+                              title="Comprar"
+                              onPress={()=>{navigation.navigate("SuperOrden", {orden: carne.id})}}
+                              buttonStyle={{ minHeight: '100%', backgroundColor: 'red' }}
+                            />
+                          }>
                             <ListItem.Chevron />
+                            <Avatar.Image size={40} source={{ uri :`${carne.image}` }}/>
                             <ListItem.Content>
                                 <ListItem.Title>{carne.name}</ListItem.Title>
+                                <ListItem.Subtitle>{carne.time}</ListItem.Subtitle>
+                                <ListItem.Subtitle style={styles.price}> $ {carne.price}</ListItem.Subtitle>
                             </ListItem.Content>
-                        </ListItem>
+                        </ListItem.Swipeable>
                     );
                 })}
       </ScrollView>
@@ -101,7 +122,7 @@ export const InfoSuperCarnes = ({type}) => {
 }
 
 
-export const InfoSuperFrutas = ({type}) => {
+export const InfoSuperFrutas = ({type, navigation}) => {
 
     const [frutas, setFrutas] = useState([])
     useEffect(() => {
@@ -110,7 +131,7 @@ export const InfoSuperFrutas = ({type}) => {
              .then((querySnapshot) => {
         const frutas = [];
         querySnapshot.forEach((doc) => {
-                const { name, description, time, price } = doc.data()
+                const { name, description, time, price, image } = doc.data()
                 frutas.push(
                     {
                         id: doc.id,
@@ -118,9 +139,9 @@ export const InfoSuperFrutas = ({type}) => {
                         description,
                         time, 
                         price,
+                        image
                     }
             )
-             console.log(doc.id, " => ", doc.data());
             })
             setFrutas(frutas)
         });
@@ -133,14 +154,24 @@ export const InfoSuperFrutas = ({type}) => {
             {
                 frutas.map((fruta) => {
                     return (
-                        <ListItem
-                            key={fruta.id}
+                        <ListItem.Swipeable
+                        key={fruta.id}
+                       rightContent={
+                         <Button
+                           title="Comprar"
+                           onPress={()=>{navigation.navigate("SuperOrden", {orden: fruta.id})}}
+                           buttonStyle={{ minHeight: '100%', backgroundColor: 'red' }}
+                         />
+                       }
                         >
                             <ListItem.Chevron />
+                            <Avatar.Image size={40} source={{ uri :`${fruta.image}` }}/>
                             <ListItem.Content>
                                 <ListItem.Title>{fruta.name}</ListItem.Title>
+                                <ListItem.Subtitle>{fruta.time}</ListItem.Subtitle>
+                                <ListItem.Subtitle style={styles.price}> $ {fruta.price}</ListItem.Subtitle>
                             </ListItem.Content>
-                        </ListItem>
+                        </ListItem.Swipeable>
                     );
                 })}
       </ScrollView>
@@ -151,7 +182,7 @@ export const InfoSuperFrutas = ({type}) => {
 
 
 
-export const InfoSuperMariscos = ({type}) => {
+export const InfoSuperMariscos = ({type, navigation}) => {
 
     const [mariscos, setMariscos] = useState([])
     useEffect(() => {
@@ -160,7 +191,7 @@ export const InfoSuperMariscos = ({type}) => {
              .then((querySnapshot) => {
         const mariscos = [];
         querySnapshot.forEach((doc) => {
-                const { name, description, time, price } = doc.data()
+                const { name, description, time, price, image } = doc.data()
                 mariscos.push(
                     {
                         id: doc.id,
@@ -168,9 +199,9 @@ export const InfoSuperMariscos = ({type}) => {
                         description,
                         time, 
                         price,
+                        image
                     }
             )
-             console.log(doc.id, " => ", doc.data());
             })
             setMariscos(mariscos)
         });
@@ -183,14 +214,24 @@ export const InfoSuperMariscos = ({type}) => {
             {
                 mariscos.map((marisco) => {
                     return (
-                        <ListItem
-                            key={marisco.id}
+                        <ListItem.Swipeable
+                        key={marisco.id}
+                       rightContent={
+                         <Button
+                           title="Comprar"
+                           onPress={()=>{navigation.navigate("SuperOrden", {orden: marisco.id})}}
+                           buttonStyle={{ minHeight: '100%', backgroundColor: 'red' }}
+                         />
+                       }
                         >
                             <ListItem.Chevron />
+                            <Avatar.Image size={40} source={{ uri :`${marisco.image}` }}/>
                             <ListItem.Content>
                                 <ListItem.Title>{marisco.name}</ListItem.Title>
+                                <ListItem.Subtitle>{marisco.time}</ListItem.Subtitle>
+                                <ListItem.Subtitle style={styles.price}> $ {marisco.price}</ListItem.Subtitle>
                             </ListItem.Content>
-                        </ListItem>
+                        </ListItem.Swipeable>
                     );
                 })}
       </ScrollView>
@@ -199,7 +240,7 @@ export const InfoSuperMariscos = ({type}) => {
 }
 
 
-export const InfoSuperAlcoholicas = ({type}) => {
+export const InfoSuperAlcoholicas = ({type, navigation}) => {
 
     const [alcoholicas, setAlcoholicas] = useState([])
     useEffect(() => {
@@ -208,7 +249,7 @@ export const InfoSuperAlcoholicas = ({type}) => {
              .then((querySnapshot) => {
         const alcoholicas = [];
         querySnapshot.forEach((doc) => {
-                const { name, description, time, price } = doc.data()
+                const { name, description, time, price, image } = doc.data()
                 alcoholicas.push(
                     {
                         id: doc.id,
@@ -216,9 +257,9 @@ export const InfoSuperAlcoholicas = ({type}) => {
                         description,
                         time, 
                         price,
+                        image
                     }
             )
-             console.log(doc.id, " => ", doc.data());
             })
             setAlcoholicas(alcoholicas)
         });
@@ -231,14 +272,24 @@ export const InfoSuperAlcoholicas = ({type}) => {
             {
                 alcoholicas.map((alcoholica) => {
                     return (
-                        <ListItem
-                            key={alcoholica.id}
+                        <ListItem.Swipeable
+                        key={alcoholica.id}
+                       rightContent={
+                         <Button
+                           title="Comprar"
+                           onPress={()=>{navigation.navigate("SuperOrden", {orden: alcoholica.id})}}
+                           buttonStyle={{ minHeight: '100%', backgroundColor: 'red' }}
+                         />
+                       }
                         >
                             <ListItem.Chevron />
+                            <Avatar.Image size={40} source={{ uri :`${alcoholica.image}` }}/>
                             <ListItem.Content>
                                 <ListItem.Title>{alcoholica.name}</ListItem.Title>
+                                <ListItem.Subtitle>{alcoholica.time}</ListItem.Subtitle>
+                                <ListItem.Subtitle style={styles.price}> $ {alcoholica.price}</ListItem.Subtitle>
                             </ListItem.Content>
-                        </ListItem>
+                        </ListItem.Swipeable>
                     );
                 })}
       </ScrollView>
@@ -248,7 +299,7 @@ export const InfoSuperAlcoholicas = ({type}) => {
 
 
 
-export const InfoSuperBebidas = ({type}) => {
+export const InfoSuperBebidas = ({type, navigation}) => {
 
     const [bebidas, setBebidas] = useState([])
     useEffect(() => {
@@ -257,7 +308,7 @@ export const InfoSuperBebidas = ({type}) => {
              .then((querySnapshot) => {
         const bebidas = [];
         querySnapshot.forEach((doc) => {
-                const { name, description, time, price } = doc.data()
+                const { name, description, time, price, image} = doc.data()
                 bebidas.push(
                     {
                         id: doc.id,
@@ -265,9 +316,9 @@ export const InfoSuperBebidas = ({type}) => {
                         description,
                         time, 
                         price,
+                        image
                     }
             )
-             console.log(doc.id, " => ", doc.data());
             })
             setBebidas(bebidas)
         });
@@ -280,14 +331,24 @@ export const InfoSuperBebidas = ({type}) => {
             {
                 bebidas.map((bebida) => {
                     return (
-                        <ListItem
-                            key={bebida.id}
+                        <ListItem.Swipeable
+                        key={bebida.id}
+                       rightContent={
+                         <Button
+                           title="Comprar"
+                           onPress={()=>{navigation.navigate("SuperOrden", {orden: bebida.id})}}
+                           buttonStyle={{ minHeight: '100%', backgroundColor: 'red' }}
+                         />
+                       }
                         >
                             <ListItem.Chevron />
+                            <Avatar.Image size={40} source={{ uri :`${bebida.image}` }}/>
                             <ListItem.Content>
                                 <ListItem.Title>{bebida.name}</ListItem.Title>
+                                <ListItem.Subtitle>{bebida.time}</ListItem.Subtitle>
+                                <ListItem.Subtitle style={styles.price}> $ {bebida.price}</ListItem.Subtitle>
                             </ListItem.Content>
-                        </ListItem>
+                        </ListItem.Swipeable>
                     );
                 })}
       </ScrollView>
@@ -296,7 +357,7 @@ export const InfoSuperBebidas = ({type}) => {
 }
 
 
-export const InfoSuperSnacks = ({type}) => {
+export const InfoSuperSnacks = ({type, navigation}) => {
 
     const [snacks, setSnack] = useState([])
     useEffect(() => {
@@ -305,7 +366,7 @@ export const InfoSuperSnacks = ({type}) => {
              .then((querySnapshot) => {
         const snacks = [];
         querySnapshot.forEach((doc) => {
-                const { name, description, time, price } = doc.data()
+                const { name, description, time, price, image } = doc.data()
                 snacks.push(
                     {
                         id: doc.id,
@@ -313,9 +374,9 @@ export const InfoSuperSnacks = ({type}) => {
                         description,
                         time, 
                         price,
+                        image
                     }
             )
-             console.log(doc.id, " => ", doc.data());
             })
             setSnack(snacks)
         });
@@ -328,14 +389,24 @@ export const InfoSuperSnacks = ({type}) => {
             {
                 snacks.map((snack) => {
                     return (
-                        <ListItem
-                            key={snack.id}
+                        <ListItem.Swipeable
+                           key={snack.id}
+                          rightContent={
+                            <Button
+                              title="Comprar"
+                              onPress={()=>{navigation.navigate("SuperOrden", {orden: snack.id})}}
+                              buttonStyle={{ minHeight: '100%', backgroundColor: 'red' }}
+                            />
+                          }
                         >
                             <ListItem.Chevron />
+                            <Avatar.Image size={40} source={{ uri :`${snack.image}` }}/>
                             <ListItem.Content>
                                 <ListItem.Title>{snack.name}</ListItem.Title>
+                                <ListItem.Subtitle>{snack.time}</ListItem.Subtitle>
+                                <ListItem.Subtitle style={styles.price}> $ {snack.price}</ListItem.Subtitle>
                             </ListItem.Content>
-                        </ListItem>
+                        </ListItem.Swipeable>
                     );
                 })}
       </ScrollView>
@@ -344,7 +415,7 @@ export const InfoSuperSnacks = ({type}) => {
 }
 
 
-export const InfoSuperCuidado = ({type}) => {
+export const InfoSuperCuidado = ({type, navigation}) => {
 
     const [cuidado, setCuidado] = useState([])
     useEffect(() => {
@@ -353,7 +424,7 @@ export const InfoSuperCuidado = ({type}) => {
              .then((querySnapshot) => {
         const cuidado = [];
         querySnapshot.forEach((doc) => {
-                const { name, description, time, price } = doc.data()
+                const { name, description, time, price, image} = doc.data()
                 cuidado.push(
                     {
                         id: doc.id,
@@ -361,9 +432,9 @@ export const InfoSuperCuidado = ({type}) => {
                         description,
                         time, 
                         price,
+                        image
                     }
             )
-             console.log(doc.id, " => ", doc.data());
             })
             setCuidado(cuidado)
         });
@@ -376,14 +447,24 @@ export const InfoSuperCuidado = ({type}) => {
             {
                 cuidado.map((cuidados) => {
                     return (
-                        <ListItem
-                            key={cuidados.id}
+                        <ListItem.Swipeable
+                           key={cuidados.id}
+                          rightContent={
+                            <Button
+                              title="Comprar"
+                              onPress={()=>{navigation.navigate("SuperOrden", {orden: cuidados.id})}}
+                              buttonStyle={{ minHeight: '100%', backgroundColor: 'red' }}
+                            />
+                          }
                         >
                             <ListItem.Chevron />
+                            <Avatar.Image size={40} source={{ uri :`${cuidados.image}` }}/>
                             <ListItem.Content>
                                 <ListItem.Title>{cuidados.name}</ListItem.Title>
+                                <ListItem.Subtitle>{cuidados.time}</ListItem.Subtitle>
+                                <ListItem.Subtitle style={styles.price}> $ {cuidados.price}</ListItem.Subtitle>
                             </ListItem.Content>
-                        </ListItem>
+                        </ListItem.Swipeable>
                     );
                 })}
       </ScrollView>
@@ -393,7 +474,7 @@ export const InfoSuperCuidado = ({type}) => {
 
 
 
-export const InfoSuperLimpieza = ({type}) => {
+export const InfoSuperLimpieza = ({type, navigation}) => {
 
     const [limpieza, setLimpieza] = useState([])
     useEffect(() => {
@@ -402,7 +483,7 @@ export const InfoSuperLimpieza = ({type}) => {
              .then((querySnapshot) => {
         const limpieza = [];
         querySnapshot.forEach((doc) => {
-                const { name, description, time, price } = doc.data()
+                const { name, description, time, price, image } = doc.data()
                 limpieza.push(
                     {
                         id: doc.id,
@@ -410,9 +491,9 @@ export const InfoSuperLimpieza = ({type}) => {
                         description,
                         time, 
                         price,
+                        image
                     }
             )
-             console.log(doc.id, " => ", doc.data());
             })
             setLimpieza(limpieza)
         });
@@ -425,14 +506,24 @@ export const InfoSuperLimpieza = ({type}) => {
             {
                 limpieza.map((limpieza) => {
                     return (
-                        <ListItem
-                            key={limpieza.id}
+                        <ListItem.Swipeable
+                           key={limpieza.id}
+                          rightContent={
+                            <Button
+                              title="Comprar"
+                              onPress={()=>{navigation.navigate("SuperOrden", {orden: limpieza.id})}}
+                              buttonStyle={{ minHeight: '100%', backgroundColor: 'red' }}
+                            />
+                          }
                         >
                             <ListItem.Chevron />
+                            <Avatar.Image size={40} source={{ uri :`${limpieza.image}` }}/>
                             <ListItem.Content>
                                 <ListItem.Title>{limpieza.name}</ListItem.Title>
+                                <ListItem.Subtitle>{limpieza.time}</ListItem.Subtitle>
+                                <ListItem.Subtitle style={styles.price}> $ {limpieza.price}</ListItem.Subtitle>
                             </ListItem.Content>
-                        </ListItem>
+                        </ListItem.Swipeable>
                     );
                 })}
       </ScrollView>
@@ -442,7 +533,7 @@ export const InfoSuperLimpieza = ({type}) => {
 
 
 
-export const InfoSuperMascotas = ({type}) => {
+export const InfoSuperMascotas = ({type, navigation}) => {
 
     const [mascotas, setMascotas] = useState([])
     useEffect(() => {
@@ -451,7 +542,7 @@ export const InfoSuperMascotas = ({type}) => {
              .then((querySnapshot) => {
         const mascotas = [];
         querySnapshot.forEach((doc) => {
-                const { name, description, time, price } = doc.data()
+                const { name, description, time, price, image } = doc.data()
                 mascotas.push(
                     {
                         id: doc.id,
@@ -459,9 +550,9 @@ export const InfoSuperMascotas = ({type}) => {
                         description,
                         time, 
                         price,
+                        image
                     }
             )
-             console.log(doc.id, " => ", doc.data());
             })
             setMascotas(mascotas)
         });
@@ -474,14 +565,24 @@ export const InfoSuperMascotas = ({type}) => {
             {
                 mascotas.map((mascota) => {
                     return (
-                        <ListItem
-                            key={mascota.id}
+                        <ListItem.Swipeable
+                        key={mascota.id}
+                       rightContent={
+                         <Button
+                           title="Comprar"
+                           onPress={()=>{navigation.navigate("SuperOrden", {orden: mascota.id})}}
+                           buttonStyle={{ minHeight: '100%', backgroundColor: 'red' }}
+                         />
+                       }
                         >
                             <ListItem.Chevron />
+                            <Avatar.Image size={40} source={{ uri :`${mascota.image}` }}/>
                             <ListItem.Content>
                                 <ListItem.Title>{mascota.name}</ListItem.Title>
+                                <ListItem.Subtitle>{mascota.time}</ListItem.Subtitle>
+                                <ListItem.Subtitle style={styles.price}> $ {mascota.price}</ListItem.Subtitle>
                             </ListItem.Content>
-                        </ListItem>
+                        </ListItem.Swipeable>
                     );
                 })}
       </ScrollView>
@@ -491,7 +592,7 @@ export const InfoSuperMascotas = ({type}) => {
 
 
 
-export const InfoSuperAbarrotes = ({type}) => {
+export const InfoSuperAbarrotes = ({type, navigation}) => {
 
     const [abarrotes, setAbarrotes] = useState([])
     useEffect(() => {
@@ -500,7 +601,7 @@ export const InfoSuperAbarrotes = ({type}) => {
              .then((querySnapshot) => {
         const abarrotes = [];
         querySnapshot.forEach((doc) => {
-                const { name, description, time, price } = doc.data()
+                const { name, description, time, price,image } = doc.data()
                 abarrotes.push(
                     {
                         id: doc.id,
@@ -508,9 +609,9 @@ export const InfoSuperAbarrotes = ({type}) => {
                         description,
                         time, 
                         price,
+                        image
                     }
             )
-             console.log(doc.id, " => ", doc.data());
             })
             setAbarrotes(abarrotes)
         });
@@ -523,14 +624,24 @@ export const InfoSuperAbarrotes = ({type}) => {
             {
                 abarrotes.map((abarrotes) => {
                     return (
-                        <ListItem
-                            key={abarrotes.id}
+                        <ListItem.Swipeable
+                        key={abarrotes.id}
+                       rightContent={
+                         <Button
+                           title="Comprar"
+                           onPress={()=>{navigation.navigate("SuperOrden", {orden: abarrotes.id})}}
+                           buttonStyle={{ minHeight: '100%', backgroundColor: 'red' }}
+                         />
+                       }
                         >
                             <ListItem.Chevron />
+                            <Avatar.Image size={40} source={{ uri :`${abarrotes.image}` }}/>
                             <ListItem.Content>
                                 <ListItem.Title>{abarrotes.name}</ListItem.Title>
+                                <ListItem.Subtitle>{abarrotes.time}</ListItem.Subtitle>
+                                <ListItem.Subtitle style={styles.price}> $ {abarrotes.price}</ListItem.Subtitle>
                             </ListItem.Content>
-                        </ListItem>
+                        </ListItem.Swipeable>
                     );
                 })}
       </ScrollView>
@@ -540,7 +651,7 @@ export const InfoSuperAbarrotes = ({type}) => {
 
 
 
-export const InfoSuperPanaderia = ({type}) => {
+export const InfoSuperPanaderia = ({type, navigation}) => {
 
     const [panaderia, setPanaderia] = useState([])
     useEffect(() => {
@@ -549,7 +660,7 @@ export const InfoSuperPanaderia = ({type}) => {
              .then((querySnapshot) => {
         const panaderia = [];
         querySnapshot.forEach((doc) => {
-                const { name, description, time, price } = doc.data()
+                const { name, description, time, price, image } = doc.data()
                 panaderia.push(
                     {
                         id: doc.id,
@@ -557,9 +668,9 @@ export const InfoSuperPanaderia = ({type}) => {
                         description,
                         time, 
                         price,
+                        image
                     }
             )
-             console.log(doc.id, " => ", doc.data());
             })
             setPanaderia(panaderia)
         });
@@ -572,17 +683,40 @@ export const InfoSuperPanaderia = ({type}) => {
             {
                 panaderia.map((pan) => {
                     return (
-                        <ListItem
-                            key={pan.id}
+                        <ListItem.Swipeable
+                        key={pan.id}
+                       rightContent={
+                         <Button
+                           title="Comprar"
+                           onPress={()=>{navigation.navigate("SuperOrden", {orden: pan.id})}}
+                           buttonStyle={{ minHeight: '100%', backgroundColor: 'red' }}
+                         />
+                       }
                         >
                             <ListItem.Chevron />
+                            <Avatar.Image size={40} source={{ uri :`${pan.image}` }}/>
                             <ListItem.Content>
                                 <ListItem.Title>{pan.name}</ListItem.Title>
+                                <ListItem.Subtitle>{pan.time}</ListItem.Subtitle>
+                                <ListItem.Subtitle style={styles.price}> $ {pan.price}</ListItem.Subtitle>
                             </ListItem.Content>
-                        </ListItem>
+                        </ListItem.Swipeable>
                     );
                 })}
       </ScrollView>
 );
             
 }
+
+
+const styles = StyleSheet.create({
+
+    price: {
+        textAlign: "right", 
+        alignSelf: 'flex-end',
+        marginTop: -5
+    },
+      list: {
+          backgroundColor: theme.colors.black
+      }
+})

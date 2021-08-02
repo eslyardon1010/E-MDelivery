@@ -3,7 +3,8 @@ import { ScrollView } from "react-native";
 import { FlatList, View, StatusBar, StyleSheet, Text, TouchableOpacity, Image } from "react-native";
 import theme from "../../theme";
 import SearchBar from "../../shared/SearchThings";
-import { getItem } from "../filter";
+import { HeaderGeneral } from "../../shared/Header";
+
 const DATA = [
   {
         title: "Pizza",
@@ -45,8 +46,7 @@ const FoodScreen = ({navigation}) => {
     return (
          <ScrollView>
       <View style={styles.container}>
-       
-              <SearchBar navigation={navigation} />
+      <HeaderGeneral/>
               <View style={styles.containerflat}>
         <FlatList
               data={DATA}

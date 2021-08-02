@@ -1,12 +1,15 @@
 import React, {useEffect, useState} from 'react'
 import { firebase } from '../firebase/index';
 import 'firebase/firestore';
-import { ScrollView, View } from 'react-native';
+import { ScrollView, StyleSheet } from 'react-native';
 import { Text } from "react-native-paper";
-import {ListItem} from 'react-native-elements'
+import theme from '../theme/index'
+import {ListItem, Button} from 'react-native-elements'
+import { View } from 'react-native';
+import { Avatar } from 'react-native-paper';
 
 
-export const InfoFoodPizza = ({food}) => {
+export const InfoFoodPizza = ({food, navigation}) => {
 
     const [foods, setFoods] = useState([])
     useEffect(() => {
@@ -15,16 +18,17 @@ export const InfoFoodPizza = ({food}) => {
              .then((querySnapshot) => {
         const foods = [];
         querySnapshot.forEach((doc) => {
-                const { name, description, time } = doc.data()
+                const { name, description, time, price,image } = doc.data()
                 foods.push(
                     {
                         id: doc.id,
                         name,
                         description,
-                        time
+                        time, 
+                        price, 
+                        image
                     }
             )
-             console.log(doc.id, " => ", doc.data());
             })
             setFoods(foods)
         });
@@ -34,26 +38,40 @@ export const InfoFoodPizza = ({food}) => {
 
     return (
         <ScrollView>
+            <View>
             {
                 foods.map((food) => {
                     return (
-                        <ListItem
-                            key={food.id}
+                        <View>
+                        <ListItem.Swipeable
+                           key={food.id}
+                          rightContent={
+                            <Button
+                              title="Comprar"
+                              onPress={()=>{navigation.navigate("TuOrden", {orden: food.id})}}
+                              buttonStyle={{ minHeight: '100%', backgroundColor: 'red' }}
+                            />
+                          }
                         >
                             <ListItem.Chevron />
+                            <Avatar.Image size={40} source={{ uri :`${food.image}` }}/>
                             <ListItem.Content>
-                                <ListItem.Title>{food.name}</ListItem.Title>
+                                <ListItem.Title style={styles.txt}>{food.name}</ListItem.Title>
+                                <ListItem.Subtitle style={styles.txt}>{food.time}</ListItem.Subtitle>
+                                <ListItem.Subtitle style={styles.price}> $ {food.price}</ListItem.Subtitle>
                             </ListItem.Content>
-                        </ListItem>
+                        </ListItem.Swipeable>
+                        </View>
                     );
                 })}
+                </View>
       </ScrollView>
 );
             
 }
 
 
-export const InfoFoodChicken = ({food}) => {
+export const InfoFoodChicken = ({food, navigation}) => {
 
     const [foods, setFoods] = useState([])
     useEffect(() => {
@@ -62,16 +80,16 @@ export const InfoFoodChicken = ({food}) => {
              .then((querySnapshot) => {
         const foods = [];
         querySnapshot.forEach((doc) => {
-                const { name, description, time } = doc.data()
+                const { name, description, time, image } = doc.data()
                 foods.push(
                     {
                         id: doc.id,
                         name,
                         description,
-                        time
+                        time, 
+                        image
                     }
             )
-             console.log(doc.id, " => ", doc.data());
             })
             setFoods(foods)
         });
@@ -84,14 +102,23 @@ export const InfoFoodChicken = ({food}) => {
             {
                 foods.map((food) => {
                     return (
-                        <ListItem
+                        <ListItem.Swipeable
                             key={food.id}
+                            rightContent={
+                                <Button
+                                  title="Comprar"
+                              onPress={()=>{navigation.navigate("TuOrden", {orden: food.id})}}
+                                  buttonStyle={{ minHeight: '100%', backgroundColor: 'red' }}
+                                />
+                              }
                         >
                             <ListItem.Chevron />
+                            <Avatar.Image size={40} source={{ uri :`${food.image}` }}/>
                             <ListItem.Content>
                                 <ListItem.Title>{food.name}</ListItem.Title>
+                                <ListItem.Subtitle>{food.time}</ListItem.Subtitle>
                             </ListItem.Content>
-                        </ListItem>
+                        </ListItem.Swipeable>
                     );
                 })}
       </ScrollView>
@@ -100,7 +127,7 @@ export const InfoFoodChicken = ({food}) => {
 }
 
 
-export const InfoFoodPasta = ({food}) => {
+export const InfoFoodPasta = ({food, navigation}) => {
 
     const [foods, setFoods] = useState([])
     useEffect(() => {
@@ -109,16 +136,16 @@ export const InfoFoodPasta = ({food}) => {
              .then((querySnapshot) => {
         const foods = [];
         querySnapshot.forEach((doc) => {
-                const { name, description, time } = doc.data()
+                const { name, description, time, image } = doc.data()
                 foods.push(
                     {
                         id: doc.id,
                         name,
                         description,
-                        time
+                        time,
+                         image
                     }
             )
-             console.log(doc.id, " => ", doc.data());
             })
             setFoods(foods)
         });
@@ -131,14 +158,23 @@ export const InfoFoodPasta = ({food}) => {
             {
                 foods.map((food) => {
                     return (
-                        <ListItem
+                        <ListItem.Swipeable
                             key={food.id}
+                            rightContent={
+                                <Button
+                                  title="Comprar"
+                                  onPress={()=>{navigation.navigate("TuOrden", {orden: food.id})}}
+                                  buttonStyle={{ minHeight: '100%', backgroundColor: 'red' }}
+                                />
+                              }
                         >
                             <ListItem.Chevron />
+                            <Avatar.Image size={40} source={{ uri :`${food.image}` }}/>
                             <ListItem.Content>
                                 <ListItem.Title>{food.name}</ListItem.Title>
+                                <ListItem.Subtitle>{food.time}</ListItem.Subtitle>
                             </ListItem.Content>
-                        </ListItem>
+                        </ListItem.Swipeable>
                     );
                 })}
       </ScrollView>
@@ -147,7 +183,7 @@ export const InfoFoodPasta = ({food}) => {
 }
 
 
-export const InfoFoodSalad = ({food}) => {
+export const InfoFoodSalad = ({food, navigation}) => {
 
     const [foods, setFoods] = useState([])
     useEffect(() => {
@@ -156,16 +192,16 @@ export const InfoFoodSalad = ({food}) => {
              .then((querySnapshot) => {
         const foods = [];
         querySnapshot.forEach((doc) => {
-                const { name, description, time } = doc.data()
+                const { name, description, time, image } = doc.data()
                 foods.push(
                     {
                         id: doc.id,
                         name,
                         description,
-                        time
+                        time, 
+                        image
                     }
             )
-             console.log(doc.id, " => ", doc.data());
             })
             setFoods(foods)
         });
@@ -178,14 +214,23 @@ export const InfoFoodSalad = ({food}) => {
             {
                 foods.map((food) => {
                     return (
-                        <ListItem
+                        <ListItem.Swipeable
                             key={food.id}
+                            rightContent={
+                                <Button
+                                  title="Comprar"
+                              onPress={()=>{navigation.navigate("TuOrden", {orden: food.id})}}
+                                  buttonStyle={{ minHeight: '100%', backgroundColor: 'red' }}
+                                />
+                              }
                         >
                             <ListItem.Chevron />
+                            <Avatar.Image size={40} source={{ uri :`${food.image}` }}/>
                             <ListItem.Content>
                                 <ListItem.Title>{food.name}</ListItem.Title>
+                                <ListItem.Subtitle>{food.time}</ListItem.Subtitle>
                             </ListItem.Content>
-                        </ListItem>
+                        </ListItem.Swipeable>
                     );
                 })}
       </ScrollView>
@@ -195,25 +240,25 @@ export const InfoFoodSalad = ({food}) => {
 
 
 
-export const InfoFoodFast = ({food}) => {
+export const InfoFoodFast = ({food, navigation}) => {
 
     const [foods, setFoods] = useState([])
     useEffect(() => {
-         firebase.firestore().collection("Food").where("type", "==", "Fast Food")
+         firebase.firestore().collection("Food").where("type", "==", "Fast food")
     .get()
              .then((querySnapshot) => {
         const foods = [];
         querySnapshot.forEach((doc) => {
-                const { name, description, time } = doc.data()
+                const { name, description, time, image } = doc.data()
                 foods.push(
                     {
                         id: doc.id,
                         name,
                         description,
-                        time
+                        time,
+                         image
                     }
             )
-             console.log(doc.id, " => ", doc.data());
             })
             setFoods(foods)
         });
@@ -226,14 +271,23 @@ export const InfoFoodFast = ({food}) => {
             {
                 foods.map((food) => {
                     return (
-                        <ListItem
+                        <ListItem.Swipeable
+                        rightContent={
+                            <Button
+                              title="Comprar"
+                              onPress={()=>{navigation.navigate("TuOrden", {orden: food.id})}}
+                              buttonStyle={{ minHeight: '100%', backgroundColor: 'red' }}
+                            />
+                          }
                             key={food.id}
                         >
                             <ListItem.Chevron />
+                            <Avatar.Image size={40} source={{ uri :`${food.image}` }}/>
                             <ListItem.Content>
                                 <ListItem.Title>{food.name}</ListItem.Title>
+                                <ListItem.Subtitle>{food.time}</ListItem.Subtitle>
                             </ListItem.Content>
-                        </ListItem>
+                        </ListItem.Swipeable>
                     );
                 })}
       </ScrollView>
@@ -243,7 +297,7 @@ export const InfoFoodFast = ({food}) => {
 
 
 
-export const InfoFoodGourmet = ({food}) => {
+export const InfoFoodGourmet = ({food, navigation}) => {
 
     const [foods, setFoods] = useState([])
     useEffect(() => {
@@ -252,16 +306,16 @@ export const InfoFoodGourmet = ({food}) => {
              .then((querySnapshot) => {
         const foods = [];
         querySnapshot.forEach((doc) => {
-                const { name, description, time } = doc.data()
+                const { name, description, time, image} = doc.data()
                 foods.push(
                     {
                         id: doc.id,
                         name,
                         description,
-                        time
+                        time, 
+                        image
                     }
             )
-             console.log(doc.id, " => ", doc.data());
             })
             setFoods(foods)
         });
@@ -274,14 +328,25 @@ export const InfoFoodGourmet = ({food}) => {
             {
                 foods.map((food) => {
                     return (
-                        <ListItem
+                        <ListItem.Swipeable
+
                             key={food.id}
+                            rightContent={
+                                <Button
+             
+                              onPress={()=>{navigation.navigate("TuOrden", {orden: food.id})}}
+                                  title="Comprar"
+                                  buttonStyle={{ minHeight: '100%', backgroundColor: 'red' }}
+                                />
+                              }
                         >
                             <ListItem.Chevron />
+                            <Avatar.Image size={40} source={{ uri :`${food.image}` }}/>
                             <ListItem.Content>
                                 <ListItem.Title>{food.name}</ListItem.Title>
+                                <ListItem.Subtitle>{food.time}</ListItem.Subtitle>
                             </ListItem.Content>
-                        </ListItem>
+                        </ListItem.Swipeable>
                     );
                 })}
       </ScrollView>
@@ -291,7 +356,7 @@ export const InfoFoodGourmet = ({food}) => {
 
 
 
-export const InfoFoodMexican = ({food}) => {
+export const InfoFoodMexican = ({food, navigation}) => {
 
     const [foods, setFoods] = useState([])
     useEffect(() => {
@@ -300,16 +365,16 @@ export const InfoFoodMexican = ({food}) => {
              .then((querySnapshot) => {
         const foods = [];
         querySnapshot.forEach((doc) => {
-                const { name, description, time } = doc.data()
+                const { name, description, time, image } = doc.data()
                 foods.push(
                     {
                         id: doc.id,
                         name,
                         description,
-                        time
+                        time, 
+                        image
                     }
             )
-             console.log(doc.id, " => ", doc.data());
             })
             setFoods(foods)
         });
@@ -322,14 +387,24 @@ export const InfoFoodMexican = ({food}) => {
             {
                 foods.map((food) => {
                     return (
-                        <ListItem
+                        <ListItem.Swipeable
+                        rightContent={
+                            <Button
+                            
+                            onPress={()=>{navigation.navigate("TuOrden", {orden: food.id})}}
+                              title="Comprar"
+                              buttonStyle={{ minHeight: '100%', backgroundColor: 'red' }}
+                            />
+                          }
                             key={food.id}
                         >
                             <ListItem.Chevron />
+                            <Avatar.Image size={40} source={{ uri :`${food.image}` }}/>
                             <ListItem.Content>
                                 <ListItem.Title>{food.name}</ListItem.Title>
+                                <ListItem.Subtitle>{food.time}</ListItem.Subtitle>
                             </ListItem.Content>
-                        </ListItem>
+                        </ListItem.Swipeable>
                     );
                 })}
       </ScrollView>
@@ -339,7 +414,7 @@ export const InfoFoodMexican = ({food}) => {
 
 
 
-export const InfoFoodChinese = ({food}) => {
+export const InfoFoodChinese = ({food, navigation}) => {
 
     const [foods, setFoods] = useState([])
     useEffect(() => {
@@ -348,16 +423,16 @@ export const InfoFoodChinese = ({food}) => {
              .then((querySnapshot) => {
         const foods = [];
         querySnapshot.forEach((doc) => {
-                const { name, description, time } = doc.data()
+                const { name, description, time, image } = doc.data()
                 foods.push(
                     {
                         id: doc.id,
                         name,
                         description,
-                        time
+                        time, 
+                        image
                     }
             )
-             console.log(doc.id, " => ", doc.data());
             })
             setFoods(foods)
         });
@@ -370,17 +445,41 @@ export const InfoFoodChinese = ({food}) => {
             {
                 foods.map((food) => {
                     return (
-                        <ListItem
+                        <ListItem.Swipeable
+                        rightContent={
+                            <Button
+                            
+                            onPress={()=>{navigation.navigate("TuOrden", {orden: food.id})}}
+                              title="Comprar"
+                              buttonStyle={{ minHeight: '100%', backgroundColor: 'red' }}
+                            />
+                          }
                             key={food.id}
                         >
                             <ListItem.Chevron />
+                            <Avatar.Image size={40} source={{ uri :`${food.image}` }}/>
                             <ListItem.Content>
                                 <ListItem.Title>{food.name}</ListItem.Title>
+                                <ListItem.Subtitle>{food.time}</ListItem.Subtitle>
                             </ListItem.Content>
-                        </ListItem>
+                        </ListItem.Swipeable>
                     );
                 })}
       </ScrollView>
 );
             
 }
+
+
+
+const styles = StyleSheet.create({
+
+    price: {
+        textAlign: "right", 
+        alignSelf: 'flex-end',
+        marginTop: -5
+    },
+      list: {
+          backgroundColor: theme.colors.black
+      }
+})
