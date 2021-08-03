@@ -2,9 +2,6 @@ import React, { useState } from "react";
 import { ScrollView } from "react-native";
 import { FlatList, View, StatusBar, StyleSheet, Text, TouchableOpacity, Image } from "react-native";
 import theme from "../../theme";
-import SearchBar from "../../shared/SearchThings";
-import { HeaderGeneral } from "../../shared/Header";
-
 const DATA = [
   {
         title: "Pizza",
@@ -46,7 +43,7 @@ const FoodScreen = ({navigation}) => {
     return (
          <ScrollView>
       <View style={styles.container}>
-      <HeaderGeneral/>
+ 
               <View style={styles.containerflat}>
         <FlatList
               data={DATA}
@@ -54,7 +51,7 @@ const FoodScreen = ({navigation}) => {
             keyExtractor={(item)=> item.id}
             renderItem={({item})=> {
                 return(
-                    <TouchableOpacity onPress={()=>{navigation.navigate("ComidaInformacion", {informacion: item.title})}}>
+                    <TouchableOpacity onPress={()=>{navigation.navigate("ComidaInformacion", {informacion: item.title}, {key:1})}}>
                         <View>
                         <Text  style={styles.title}>{item.title}</Text>
                         </View>

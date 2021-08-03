@@ -18,6 +18,7 @@ import SuperMarketInfo from '../screens/SuperMarketInfo';
 import {OrdenFood, OrdenMedicine, OrdenCloths, OrdenSuper} from '../screens/YourOrden'
 import YourOrdens from '../screens/YourOrdens'
 import ClothsAccesoriesInfo from '../screens/ClothsAccesoriesInfo'
+import theme from "../../theme";
 const Stack = createStackNavigator();
 
 function Navigation({navigation}) {
@@ -39,9 +40,9 @@ function Navigation({navigation}) {
       {!state.loading && (
         <>
           {state.loggedIn ? (
-            <Stack.Navigator  screenOptions={{ headerShown: false }}>
-              <Stack.Screen name="Home" component={Home} />
-              <Stack.Screen name="AcountInformation" component={AcountInformation} />
+            <Stack.Navigator screenOptions={{ headerStyle: { backgroundColor: theme.colors.red } }}>
+              <Stack.Screen name="Home" component={Home}  options = {{headerTitle: 'E&M Delivery'}} />
+              <Stack.Screen name="InformacionUsuario" component={AcountInformation}/>
               <Stack.Screen name="Comida" component={FoodScreen} />
                <Stack.Screen name="ComidaInformacion" component={FoodInfo} />
                <Stack.Screen name="Ropa-Accesorios" component={ClothsAccesoriesScreen} />
@@ -54,7 +55,6 @@ function Navigation({navigation}) {
                <Stack.Screen name="SuperOrden" component={OrdenSuper} />
                <Stack.Screen name="OrdenCloths" component={OrdenCloths} />  
               <Stack.Screen name="InformacionCloths" component={ClothsAccesoriesInfo} />
-               
                <Stack.Screen name="TusOrdenes" component={YourOrdens} />
             </Stack.Navigator>
           ) : (

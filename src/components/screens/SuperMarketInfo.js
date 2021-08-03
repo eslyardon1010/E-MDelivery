@@ -15,7 +15,6 @@ import {
     InfoSuperPanaderia,
     InfoSuperSnacks
 } from '../../firebase/ConsultsSuperMarket';
-import { HeaderGeneral } from '../../shared/Header';
     
 const infoSuperMarket = ({route, navigation}) => {
     const { informacion } = route.params;
@@ -23,7 +22,6 @@ const infoSuperMarket = ({route, navigation}) => {
     if (informacion == 'Lacteos') {
         return (
             <View>
-                  <HeaderGeneral/>
             <ScrollView>
                     <InfoSuperLacteos type={informacion} navigation={navigation}/>
           </ScrollView>
@@ -32,7 +30,6 @@ const infoSuperMarket = ({route, navigation}) => {
     }else if (informacion == "Carnes") {
         return(
             <View>
-                  <HeaderGeneral/>
             <ScrollView>
                    <InfoSuperCarnes type={informacion} navigation={navigation}/>  
           </ScrollView>
@@ -41,7 +38,6 @@ const infoSuperMarket = ({route, navigation}) => {
     }else if (informacion == "Frutas") {
         return(
             <View>
-                  <HeaderGeneral/>
             <ScrollView>
                    <InfoSuperFrutas type={informacion} navigation={navigation}/>  
           </ScrollView>
@@ -50,7 +46,6 @@ const infoSuperMarket = ({route, navigation}) => {
     }else if (informacion == "Mariscos") {
         return(
             <View>
-                <HeaderGeneral/>
             <ScrollView>
                    <InfoSuperMariscos type={informacion} navigation={navigation}/>  
           </ScrollView>
@@ -60,7 +55,6 @@ const infoSuperMarket = ({route, navigation}) => {
     }else if (informacion == "Alcoholicas") {
         return(
             <View>
-                <HeaderGeneral/>
             <ScrollView>
                    <InfoSuperAlcoholicas type={informacion} navigation={navigation}/>  
           </ScrollView>
@@ -69,7 +63,6 @@ const infoSuperMarket = ({route, navigation}) => {
     }else if (informacion == "Sodas") {
         return(
             <View>
-                <HeaderGeneral/>
             <ScrollView>
                    <InfoSuperBebidas type={informacion} navigation={navigation}/>  
           </ScrollView>
@@ -78,7 +71,6 @@ const infoSuperMarket = ({route, navigation}) => {
     }else if (informacion == "Snacks") {
         return(
             <View>
-                <HeaderGeneral/>
             <ScrollView>
                    <InfoSuperSnacks type={informacion} navigation={navigation}/>  
           </ScrollView>
@@ -87,7 +79,6 @@ const infoSuperMarket = ({route, navigation}) => {
     }else if (informacion == "Cuidado Personal") {
         return(
             <View>
-                <HeaderGeneral/>
             <ScrollView>
                    <InfoSuperCuidado type={informacion} navigation={navigation}/>  
           </ScrollView>
@@ -96,7 +87,6 @@ const infoSuperMarket = ({route, navigation}) => {
     }else if (informacion == "Limpieza") {
         return(
             <View>
-                <HeaderGeneral/>
             <ScrollView>
                    <InfoSuperLimpieza type={informacion} navigation={navigation}/>  
           </ScrollView>
@@ -105,7 +95,6 @@ const infoSuperMarket = ({route, navigation}) => {
     }else if (informacion == "Mascotas") {
         return(
             <View>
-                <HeaderGeneral/>
             <ScrollView>
                    <InfoSuperMascotas type={informacion} navigation={navigation}/>  
           </ScrollView>
@@ -115,7 +104,6 @@ const infoSuperMarket = ({route, navigation}) => {
     else if (informacion == "Abarrotes") {
         return(
             <View>
-                <HeaderGeneral/>
             <ScrollView>
                    <InfoSuperAbarrotes type={informacion} navigation={navigation}/>  
           </ScrollView>
@@ -124,7 +112,6 @@ const infoSuperMarket = ({route, navigation}) => {
     }else if (informacion == "Panaderia") {
         return(
             <View>
-                <HeaderGeneral/>
             <ScrollView>
                    <InfoSuperPanaderia type={informacion} navigation={navigation}/>  
           </ScrollView>

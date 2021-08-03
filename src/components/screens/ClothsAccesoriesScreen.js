@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import { ScrollView } from "react-native";
 import { FlatList, View, StatusBar, StyleSheet, Text, TouchableOpacity, Image } from "react-native";
 import theme from "../../theme";
-import SearchBar from "../../shared/SearchThings";
-import { HeaderGeneral } from "../../shared/Header";
 
 const DATA = [
       {  title: "Maquillaje",
@@ -22,8 +20,8 @@ const DATA = [
       imgUrl: "https://i.ibb.co/93Mth3D/jeans.jpg"
   },
   {
-      title: "Camisetas",
-      imgUrl: "https://i.ibb.co/XjyFYTT/camisetas.jpg"
+      title: "Blusas",
+      imgUrl: "https://i.pinimg.com/originals/24/d2/40/24d240a8bfa812ac2672512c743dd331.jpg"
     },
    {
        title: "Formales",
@@ -47,7 +45,6 @@ const ClothScreen = ({navigation}) => {
     return (
          <ScrollView>
       <View style={styles.container}>
-      <HeaderGeneral/>
               <View style={styles.containerflat}>
         <FlatList
               data={DATA}
@@ -55,7 +52,7 @@ const ClothScreen = ({navigation}) => {
             keyExtractor={(item)=> item.id}
             renderItem={({item})=> {
                 return(
-                    <TouchableOpacity onPress={()=>{navigation.navigate(""), {informacion: item.title}}}>
+                    <TouchableOpacity onPress={()=>{navigation.navigate("InformacionCloths", {informacion: item.title})}}>
 
                         <View>
                         <Text  style={styles.title}>{item.title}</Text>

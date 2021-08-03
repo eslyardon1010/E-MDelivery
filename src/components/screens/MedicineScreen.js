@@ -2,12 +2,10 @@ import React, { useState, Component } from "react";
 import { ScrollView } from "react-native";
 import { FlatList, View, StatusBar, StyleSheet, Text, TouchableOpacity, Image } from "react-native";
 import theme from "../../theme";
-import SearchBar from "../../shared/SearchThings";
-import { HeaderGeneral } from "../../shared/Header";
 
 const DATA = [
   {  title: "Alimentario y Metabolismo",
-      imgUrl: "https://i.ibb.co/HTcTRmv/makeup.jpg"
+      imgUrl: "https://image.freepik.com/foto-gratis/monton-pastillas-colores-medicamentos-vitaminas-capsulas-cuchara-concepto-farmacia-aditivos-alimentarios-abuso-adiccion-medicamentos-adiccion-drogas_94330-123.jpg"
   },
   {
       title: "Sangre y órganos",
@@ -47,7 +45,6 @@ const ClothScreen = ({navigation}, props) => {
     return (
          <ScrollView>
       <View style={styles.container}>
-      <HeaderGeneral/>
               <View style={styles.containerflat}>
         <FlatList
               data={DATA}

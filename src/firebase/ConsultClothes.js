@@ -44,7 +44,7 @@ export const InfoMaquillaje = ({type, navigation}) => {
                         key={screen.id}
                        rightContent={
                          <Button
-                           title="Comprar"
+                           title="Mostrar"
                            onPress={()=>{navigation.navigate("OrdenCloths", {orden: screen.id})}}
                            buttonStyle={{ minHeight: '100%', backgroundColor: 'red' }}
                          />
@@ -54,7 +54,7 @@ export const InfoMaquillaje = ({type, navigation}) => {
                             <ListItem.Content>
                                 <ListItem.Title>{screen.name}</ListItem.Title>
                                 <ListItem.Subtitle>{screen.time}</ListItem.Subtitle>
-                                <ListItem.Subtitle style={styles.price}> $ {screen.price}</ListItem.Subtitle>    
+                                <ListItem.Subtitle style={styles.price}> L {screen.price}</ListItem.Subtitle>    
                             </ListItem.Content>
                         </ListItem.Swipeable>
                     );
@@ -102,7 +102,7 @@ export const InfoPerfumes = ({type, navigation}) => {
                         key={screen.id}
                        rightContent={
                          <Button
-                           title="Comprar"
+                           title="Mostrar"
                            onPress={()=>{navigation.navigate("OrdenCloths", {orden: screen.id})}}
                            buttonStyle={{ minHeight: '100%', backgroundColor: 'red' }}
                          />
@@ -112,7 +112,7 @@ export const InfoPerfumes = ({type, navigation}) => {
                             <ListItem.Content>
                                 <ListItem.Title>{screen.name}</ListItem.Title>
                                 <ListItem.Subtitle>{screen.time}</ListItem.Subtitle>
-                                <ListItem.Subtitle style={styles.price}> $ {screen.price}</ListItem.Subtitle>    
+                                <ListItem.Subtitle style={styles.price}> L {screen.price}</ListItem.Subtitle>    
                             </ListItem.Content>
                         </ListItem.Swipeable>
                     );
@@ -161,7 +161,7 @@ export const InfoCarteras = ({type, navigation}) => {
                         key={screen.id}
                        rightContent={
                          <Button
-                           title="Comprar"
+                           title="Mostrar"
                            onPress={()=>{navigation.navigate("OrdenCloths", {orden: screen.id})}}
                            buttonStyle={{ minHeight: '100%', backgroundColor: 'red' }}
                          />
@@ -171,7 +171,7 @@ export const InfoCarteras = ({type, navigation}) => {
                             <ListItem.Content>
                                 <ListItem.Title>{screen.name}</ListItem.Title>
                                 <ListItem.Subtitle>{screen.time}</ListItem.Subtitle>
-                                <ListItem.Subtitle style={styles.price}> $ {screen.price}</ListItem.Subtitle>    
+                                <ListItem.Subtitle style={styles.price}> L {screen.price}</ListItem.Subtitle>    
                             </ListItem.Content>
                         </ListItem.Swipeable>
                     );
@@ -221,7 +221,7 @@ export const InfoJeans = ({type, navigation}) => {
                         key={screen.id}
                        rightContent={
                          <Button
-                           title="Comprar"
+                           title="Mostrar"
                            onPress={()=>{navigation.navigate("OrdenCloths", {orden: screen.id})}}
                            buttonStyle={{ minHeight: '100%', backgroundColor: 'red' }}
                          />
@@ -231,7 +231,7 @@ export const InfoJeans = ({type, navigation}) => {
                             <ListItem.Content>
                                 <ListItem.Title>{screen.name}</ListItem.Title>
                                 <ListItem.Subtitle>{screen.time}</ListItem.Subtitle>
-                                <ListItem.Subtitle style={styles.price}> $ {screen.price}</ListItem.Subtitle>    
+                                <ListItem.Subtitle style={styles.price}> L {screen.price}</ListItem.Subtitle>    
                             </ListItem.Content>
                         </ListItem.Swipeable>
                     );
@@ -280,7 +280,7 @@ export const InfoBlusas = ({type, navigation}) => {
                         key={screen.id}
                        rightContent={
                          <Button
-                           title="Comprar"
+                           title="Mostrar"
                            onPress={()=>{navigation.navigate("OrdenCloths", {orden: screen.id})}}
                            buttonStyle={{ minHeight: '100%', backgroundColor: 'red' }}
                          />
@@ -290,7 +290,7 @@ export const InfoBlusas = ({type, navigation}) => {
                             <ListItem.Content>
                                 <ListItem.Title>{screen.name}</ListItem.Title>
                                 <ListItem.Subtitle>{screen.time}</ListItem.Subtitle>
-                                <ListItem.Subtitle style={styles.price}> $ {screen.price}</ListItem.Subtitle>    
+                                <ListItem.Subtitle style={styles.price}> L {screen.price}</ListItem.Subtitle>    
                             </ListItem.Content>
                         </ListItem.Swipeable>
                     );
@@ -339,7 +339,7 @@ export const InfoFormales = ({type, navigation}) => {
                         key={screen.id}
                        rightContent={
                          <Button
-                           title="Comprar"
+                           title="Mostrar"
                            onPress={()=>{navigation.navigate("OrdenCloths", {orden: screen.id})}}
                            buttonStyle={{ minHeight: '100%', backgroundColor: 'red' }}
                          />
@@ -349,7 +349,7 @@ export const InfoFormales = ({type, navigation}) => {
                             <ListItem.Content>
                                 <ListItem.Title>{screen.name}</ListItem.Title>
                                 <ListItem.Subtitle>{screen.time}</ListItem.Subtitle>
-                                <ListItem.Subtitle style={styles.price}> $ {screen.price}</ListItem.Subtitle>    
+                                <ListItem.Subtitle style={styles.price}> L {screen.price}</ListItem.Subtitle>    
                             </ListItem.Content>
                         </ListItem.Swipeable>
                     );
@@ -403,7 +403,7 @@ export const InfoZapatos = ({type, navigation}) => {
                         key={screen.id}
                        rightContent={
                          <Button
-                           title="Comprar"
+                           title="Mostrar"
                            onPress={()=>{navigation.navigate("OrdenCloths", {orden: screen.id})}}
                            buttonStyle={{ minHeight: '100%', backgroundColor: 'red' }}
                          />
@@ -413,7 +413,7 @@ export const InfoZapatos = ({type, navigation}) => {
                             <ListItem.Content>
                                 <ListItem.Title>{screen.name}</ListItem.Title>
                                 <ListItem.Subtitle>{screen.time}</ListItem.Subtitle>
-                                <ListItem.Subtitle style={styles.price}> $ {screen.price}</ListItem.Subtitle>    
+                                <ListItem.Subtitle style={styles.price}> L {screen.price}</ListItem.Subtitle>    
                             </ListItem.Content>
                         </ListItem.Swipeable>
                     );
@@ -464,7 +464,7 @@ export const InfoAccesorios = ({type, navigation}) => {
                         key={screen.id}
                        rightContent={
                          <Button
-                           title="Comprar"
+                           title="Mostrar"
                            onPress={()=>{navigation.navigate("OrdenCloths", {orden: screen.id})}}
                            buttonStyle={{ minHeight: '100%', backgroundColor: 'red' }}
                          />
@@ -474,7 +474,7 @@ export const InfoAccesorios = ({type, navigation}) => {
                             <ListItem.Content>
                                 <ListItem.Title>{screen.name}</ListItem.Title>
                                 <ListItem.Subtitle>{screen.time}</ListItem.Subtitle>
-                                <ListItem.Subtitle style={styles.price}> $ {screen.price}</ListItem.Subtitle>    
+                                <ListItem.Subtitle style={styles.price}> L {screen.price}</ListItem.Subtitle>    
                             </ListItem.Content>
                         </ListItem.Swipeable>
                     );

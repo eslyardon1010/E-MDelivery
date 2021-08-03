@@ -1,10 +1,12 @@
 import React, {useEffect, useState} from 'react'
+import { Alert } from 'react-native'
 import { TouchableOpacity } from 'react-native'
+import { DevSettings } from 'react-native'
 import { View, ScrollView, Text, StyleSheet, Image } from 'react-native'
 import { Title, Divider } from 'react-native-paper'
 import {firebase} from '../../firebase/index'
-import { HeaderGeneral } from '../../shared/Header'
 import theme from '../../theme'
+
 
 export const OrdenFood = ({route, navigation}) => {
     const [orden, setOrden] = useState([])
@@ -25,22 +27,34 @@ export const OrdenFood = ({route, navigation}) => {
         }
           
           useEffect(() => {
-      getDetailbyId(route.params.orden)
-     
-     const orden = [];
-           
-       
-    });
+              getDetailbyId(route.params.orden)       
+          });
+  
+
 
 
     return (
         <View style={styles.container}>
         <ScrollView>
             <View>
-            <HeaderGeneral/>
+    
             {
             
-                orden.map((orden) => {
+                        orden.map((orden) => {
+                const user = firebase.auth().currentUser;
+    
+                 const Agregar = {
+                     costoenvio: 25,
+                     direccion: 'Barrio',
+                     name: `${orden.name}`,
+                     price: `${orden.price}`,
+                     state: 'pending',
+                     total: `${orden.price + 25}`,
+                     user: `${user.uid}`
+                 }
+                 const ref = firebase.firestore().collection('Orders');
+               
+     
                     return (
                         <View>
                              <Title style={styles.txt}>Nombre: {orden.name}</Title>
@@ -50,10 +64,11 @@ export const OrdenFood = ({route, navigation}) => {
                              <Text style={styles.txt}>Descripcion</Text>
         
                              <Text style={styles.txt}>{orden.description}</Text>
-                             <Text style={styles.txt}>Precio: ${orden.price}</Text>
+                             <Text style={styles.txt}>Precio: L {orden.price}</Text>
                              <Text style={styles.txt}>Tiempo Estimado: {orden.time}</Text>
-                             <TouchableOpacity onPress={() => {navigation.navigate("TusOrdenes")}} style={styles.button} >
-                                 <Text style={styles.texto}>COMPRAR</Text>
+                            <TouchableOpacity onPress={() => {
+                                (ref.add(Agregar), alert('Orden Agregada Correcta, por favor revise el carrito de compras'))}}style={styles.button} >
+                                <Text style={styles.texto}>COMPRAR </Text>
                              </TouchableOpacity>
 
                         </View>
@@ -99,11 +114,23 @@ export const OrdenMedicine = ({route}) => {
 
     return (
         <View style={styles.container}>
-        <HeaderGeneral/>
+
         <ScrollView>
             <View>
             {
-                orden.map((orden) => {
+                        orden.map((orden) => {
+                     const user = firebase.auth().currentUser;
+    
+                 const Agregar = {
+                     costoenvio: 25,
+                     direccion: 'Barrio',
+                     name: `${orden.name}`,
+                     price: `${orden.price}`,
+                     state: 'pending',
+                     total: `${orden.price + 25}`,
+                     user: `${user.uid}`
+                 }
+                 const ref = firebase.firestore().collection('Orders');
                     return (
                         <View>
                              <Title style={styles.txt}>Nombre: {orden.name}</Title>
@@ -114,7 +141,8 @@ export const OrdenMedicine = ({route}) => {
                              <Text style={styles.txt}>{orden.description}</Text>
                              <Text style={styles.txt}>Precio: ${orden.price}</Text>
                              <Text style={styles.txt}>Tiempo Estimado: {orden.time}</Text>
-                             <TouchableOpacity onPress={() => {navigation.navigate("TusOrdenes")}} style={styles.button} >
+                             <TouchableOpacity  onPress={() => {
+                                (ref.add(Agregar), alert('Orden Agregada Correcta, por favor revise el carrito de compras') )}} style={styles.button} >
                                  <Text style={styles.texto}>COMPRAR</Text>
                              </TouchableOpacity>
                         </View>
@@ -157,11 +185,23 @@ export const OrdenSuper = ({route}) => {
 
     return (
         <View style={styles.container}>
-        <HeaderGeneral/>
+
         <ScrollView>
             <View>
             {
-                orden.map((orden) => {
+                        orden.map((orden) => {
+                     const user = firebase.auth().currentUser;
+    
+                 const Agregar = {
+                     costoenvio: 25,
+                     direccion: 'Barrio',
+                     name: `${orden.name}`,
+                     price: `${orden.price}`,
+                     state: 'pending',
+                     total: `${orden.price + 25}`,
+                     user: `${user.uid}`
+                 }
+                 const ref = firebase.firestore().collection('Orders');
                     return (
                         <View>
                              <Title style={styles.txt}>Nombre: {orden.name}</Title>
@@ -172,7 +212,8 @@ export const OrdenSuper = ({route}) => {
                              <Text style={styles.txt}>{orden.description}</Text>
                              <Text style={styles.txt}>Precio: ${orden.price}</Text>
                              <Text style={styles.txt}>Tiempo Estimado: {orden.time}</Text>
-                             <TouchableOpacity onPress={() => {navigation.navigate("TusOrdenes")}} style={styles.button} >
+                             <TouchableOpacity  onPress={() => {
+                                (ref.add(Agregar), alert('Orden Agregada Correcta, por favor revise el carrito de compras') )}} style={styles.button} >
                                  <Text style={styles.texto}>COMPRAR</Text>
                              </TouchableOpacity>
                         </View>
@@ -215,11 +256,23 @@ export const OrdenCloths = ({route}) => {
 
     return (
         <View style={styles.container}>
-        <HeaderGeneral/>
+     
         <ScrollView>
             <View>
             {
-                orden.map((orden) => {
+                        orden.map((orden) => {
+                     const user = firebase.auth().currentUser;
+    
+                 const Agregar = {
+                     costoenvio: 25,
+                     direccion: 'Barrio',
+                     name: `${orden.name}`,
+                     price: `${orden.price}`,
+                     state: 'pending',
+                     total: `${orden.price + 25}`,
+                     user: `${user.uid}`
+                 }
+                 const ref = firebase.firestore().collection('Orders');
                     return (
                         <View>
                              <Title style={styles.txt}>Nombre: {orden.name}</Title>
@@ -230,7 +283,8 @@ export const OrdenCloths = ({route}) => {
                              <Text style={styles.txt}>{orden.description}</Text>
                              <Text style={styles.txt}>Precio: ${orden.price}</Text>
                              <Text style={styles.txt}>Tiempo Estimado: {orden.time}</Text>
-                             <TouchableOpacity onPress={() => {navigation.navigate("TusOrdenes")}} style={styles.button} >
+                             <TouchableOpacity  onPress={() => {
+                                (ref.add(Agregar), alert('Orden Agregada Correcta, por favor revise el carrito de compras') )}} style={styles.button} >
                                  <Text style={styles.texto}>COMPRAR</Text>
                              </TouchableOpacity>
                         </View>

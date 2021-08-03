@@ -47,7 +47,7 @@ export const InfoFoodPizza = ({food, navigation}) => {
                            key={food.id}
                           rightContent={
                             <Button
-                              title="Comprar"
+                              title="Mostrar"
                               onPress={()=>{navigation.navigate("TuOrden", {orden: food.id})}}
                               buttonStyle={{ minHeight: '100%', backgroundColor: 'red' }}
                             />
@@ -58,7 +58,7 @@ export const InfoFoodPizza = ({food, navigation}) => {
                             <ListItem.Content>
                                 <ListItem.Title style={styles.txt}>{food.name}</ListItem.Title>
                                 <ListItem.Subtitle style={styles.txt}>{food.time}</ListItem.Subtitle>
-                                <ListItem.Subtitle style={styles.price}> $ {food.price}</ListItem.Subtitle>
+                                <ListItem.Subtitle style={styles.price}>L {food.price}</ListItem.Subtitle>
                             </ListItem.Content>
                         </ListItem.Swipeable>
                         </View>
@@ -80,14 +80,15 @@ export const InfoFoodChicken = ({food, navigation}) => {
              .then((querySnapshot) => {
         const foods = [];
         querySnapshot.forEach((doc) => {
-                const { name, description, time, image } = doc.data()
+                const { name, description, time, image, price } = doc.data()
                 foods.push(
                     {
                         id: doc.id,
                         name,
                         description,
                         time, 
-                        image
+                        image,
+                        price
                     }
             )
             })
@@ -106,7 +107,7 @@ export const InfoFoodChicken = ({food, navigation}) => {
                             key={food.id}
                             rightContent={
                                 <Button
-                                  title="Comprar"
+                                  title="Mostrar"
                               onPress={()=>{navigation.navigate("TuOrden", {orden: food.id})}}
                                   buttonStyle={{ minHeight: '100%', backgroundColor: 'red' }}
                                 />
@@ -117,6 +118,7 @@ export const InfoFoodChicken = ({food, navigation}) => {
                             <ListItem.Content>
                                 <ListItem.Title>{food.name}</ListItem.Title>
                                 <ListItem.Subtitle>{food.time}</ListItem.Subtitle>
+                                 <ListItem.Subtitle style={styles.price}>L {food.price}</ListItem.Subtitle>
                             </ListItem.Content>
                         </ListItem.Swipeable>
                     );
@@ -136,14 +138,15 @@ export const InfoFoodPasta = ({food, navigation}) => {
              .then((querySnapshot) => {
         const foods = [];
         querySnapshot.forEach((doc) => {
-                const { name, description, time, image } = doc.data()
+                const { name, description, time, image, price } = doc.data()
                 foods.push(
                     {
                         id: doc.id,
                         name,
                         description,
                         time,
-                         image
+                         image, 
+                         price
                     }
             )
             })
@@ -162,7 +165,7 @@ export const InfoFoodPasta = ({food, navigation}) => {
                             key={food.id}
                             rightContent={
                                 <Button
-                                  title="Comprar"
+                                  title="Mostrar"
                                   onPress={()=>{navigation.navigate("TuOrden", {orden: food.id})}}
                                   buttonStyle={{ minHeight: '100%', backgroundColor: 'red' }}
                                 />
@@ -173,6 +176,7 @@ export const InfoFoodPasta = ({food, navigation}) => {
                             <ListItem.Content>
                                 <ListItem.Title>{food.name}</ListItem.Title>
                                 <ListItem.Subtitle>{food.time}</ListItem.Subtitle>
+                                 <ListItem.Subtitle style={styles.price}>L {food.price}</ListItem.Subtitle>
                             </ListItem.Content>
                         </ListItem.Swipeable>
                     );
@@ -181,6 +185,7 @@ export const InfoFoodPasta = ({food, navigation}) => {
 );
             
 }
+
 
 
 export const InfoFoodSalad = ({food, navigation}) => {
@@ -192,14 +197,15 @@ export const InfoFoodSalad = ({food, navigation}) => {
              .then((querySnapshot) => {
         const foods = [];
         querySnapshot.forEach((doc) => {
-                const { name, description, time, image } = doc.data()
+                const { name, description, time, image, price } = doc.data()
                 foods.push(
                     {
                         id: doc.id,
                         name,
                         description,
                         time, 
-                        image
+                        image,
+                         price
                     }
             )
             })
@@ -218,7 +224,7 @@ export const InfoFoodSalad = ({food, navigation}) => {
                             key={food.id}
                             rightContent={
                                 <Button
-                                  title="Comprar"
+                                  title="Mostrar"
                               onPress={()=>{navigation.navigate("TuOrden", {orden: food.id})}}
                                   buttonStyle={{ minHeight: '100%', backgroundColor: 'red' }}
                                 />
@@ -229,6 +235,7 @@ export const InfoFoodSalad = ({food, navigation}) => {
                             <ListItem.Content>
                                 <ListItem.Title>{food.name}</ListItem.Title>
                                 <ListItem.Subtitle>{food.time}</ListItem.Subtitle>
+                                 <ListItem.Subtitle style={styles.price}>L {food.price}</ListItem.Subtitle>
                             </ListItem.Content>
                         </ListItem.Swipeable>
                     );
@@ -249,14 +256,15 @@ export const InfoFoodFast = ({food, navigation}) => {
              .then((querySnapshot) => {
         const foods = [];
         querySnapshot.forEach((doc) => {
-                const { name, description, time, image } = doc.data()
+                const { name, description, time, image, price } = doc.data()
                 foods.push(
                     {
                         id: doc.id,
                         name,
                         description,
                         time,
-                         image
+                         image, 
+                         price
                     }
             )
             })
@@ -274,7 +282,7 @@ export const InfoFoodFast = ({food, navigation}) => {
                         <ListItem.Swipeable
                         rightContent={
                             <Button
-                              title="Comprar"
+                              title="Mostrar"
                               onPress={()=>{navigation.navigate("TuOrden", {orden: food.id})}}
                               buttonStyle={{ minHeight: '100%', backgroundColor: 'red' }}
                             />
@@ -286,6 +294,7 @@ export const InfoFoodFast = ({food, navigation}) => {
                             <ListItem.Content>
                                 <ListItem.Title>{food.name}</ListItem.Title>
                                 <ListItem.Subtitle>{food.time}</ListItem.Subtitle>
+                                 <ListItem.Subtitle style={styles.price}>L {food.price}</ListItem.Subtitle>
                             </ListItem.Content>
                         </ListItem.Swipeable>
                     );
@@ -306,14 +315,15 @@ export const InfoFoodGourmet = ({food, navigation}) => {
              .then((querySnapshot) => {
         const foods = [];
         querySnapshot.forEach((doc) => {
-                const { name, description, time, image} = doc.data()
+                const { name, description, time, image, price} = doc.data()
                 foods.push(
                     {
                         id: doc.id,
                         name,
                         description,
                         time, 
-                        image
+                        image, 
+                        price
                     }
             )
             })
@@ -335,7 +345,7 @@ export const InfoFoodGourmet = ({food, navigation}) => {
                                 <Button
              
                               onPress={()=>{navigation.navigate("TuOrden", {orden: food.id})}}
-                                  title="Comprar"
+                                  title="Mostrar"
                                   buttonStyle={{ minHeight: '100%', backgroundColor: 'red' }}
                                 />
                               }
@@ -345,6 +355,7 @@ export const InfoFoodGourmet = ({food, navigation}) => {
                             <ListItem.Content>
                                 <ListItem.Title>{food.name}</ListItem.Title>
                                 <ListItem.Subtitle>{food.time}</ListItem.Subtitle>
+                                 <ListItem.Subtitle style={styles.price}>L {food.price}</ListItem.Subtitle>
                             </ListItem.Content>
                         </ListItem.Swipeable>
                     );
@@ -365,14 +376,15 @@ export const InfoFoodMexican = ({food, navigation}) => {
              .then((querySnapshot) => {
         const foods = [];
         querySnapshot.forEach((doc) => {
-                const { name, description, time, image } = doc.data()
+                const { name, description, time, image, price } = doc.data()
                 foods.push(
                     {
                         id: doc.id,
                         name,
                         description,
                         time, 
-                        image
+                        image,
+                        price
                     }
             )
             })
@@ -392,7 +404,7 @@ export const InfoFoodMexican = ({food, navigation}) => {
                             <Button
                             
                             onPress={()=>{navigation.navigate("TuOrden", {orden: food.id})}}
-                              title="Comprar"
+                              title="Mostrar"
                               buttonStyle={{ minHeight: '100%', backgroundColor: 'red' }}
                             />
                           }
@@ -403,6 +415,7 @@ export const InfoFoodMexican = ({food, navigation}) => {
                             <ListItem.Content>
                                 <ListItem.Title>{food.name}</ListItem.Title>
                                 <ListItem.Subtitle>{food.time}</ListItem.Subtitle>
+                                 <ListItem.Subtitle style={styles.price}>L {food.price}</ListItem.Subtitle>
                             </ListItem.Content>
                         </ListItem.Swipeable>
                     );
@@ -423,14 +436,15 @@ export const InfoFoodChinese = ({food, navigation}) => {
              .then((querySnapshot) => {
         const foods = [];
         querySnapshot.forEach((doc) => {
-                const { name, description, time, image } = doc.data()
+                const { name, description, time, image, price } = doc.data()
                 foods.push(
                     {
                         id: doc.id,
                         name,
                         description,
                         time, 
-                        image
+                        image,
+                        price
                     }
             )
             })
@@ -450,7 +464,7 @@ export const InfoFoodChinese = ({food, navigation}) => {
                             <Button
                             
                             onPress={()=>{navigation.navigate("TuOrden", {orden: food.id})}}
-                              title="Comprar"
+                              title="Mostrar"
                               buttonStyle={{ minHeight: '100%', backgroundColor: 'red' }}
                             />
                           }
@@ -461,6 +475,7 @@ export const InfoFoodChinese = ({food, navigation}) => {
                             <ListItem.Content>
                                 <ListItem.Title>{food.name}</ListItem.Title>
                                 <ListItem.Subtitle>{food.time}</ListItem.Subtitle>
+                                 <ListItem.Subtitle style={styles.price}>L {food.price}</ListItem.Subtitle>
                             </ListItem.Content>
                         </ListItem.Swipeable>
                     );

@@ -43,7 +43,7 @@ export const InfoSuperLacteos = ({type, navigation}) => {
                         key={lacteo.id}
                        rightContent={
                          <Button
-                           title="Comprar"
+                           title="Mostrar"
                            onPress={()=>{navigation.navigate("SuperOrden", {orden: lacteo.id})}}
                            buttonStyle={{ minHeight: '100%', backgroundColor: 'red' }}
                          />
@@ -53,7 +53,7 @@ export const InfoSuperLacteos = ({type, navigation}) => {
                             <ListItem.Content>
                                 <ListItem.Title>{lacteo.name}</ListItem.Title>
                                 <ListItem.Subtitle>{lacteo.time}</ListItem.Subtitle>
-                                <ListItem.Subtitle style={styles.price}> $ {lacteo.price}</ListItem.Subtitle>    
+                                <ListItem.Subtitle style={styles.price}> L {lacteo.price}</ListItem.Subtitle>    
                             </ListItem.Content>
                         </ListItem.Swipeable>
                     );
@@ -101,7 +101,7 @@ export const InfoSuperCarnes = ({type, navigation}) => {
                            key={carne.id}
                           rightContent={
                             <Button
-                              title="Comprar"
+                              title="Mostrar"
                               onPress={()=>{navigation.navigate("SuperOrden", {orden: carne.id})}}
                               buttonStyle={{ minHeight: '100%', backgroundColor: 'red' }}
                             />
@@ -111,7 +111,7 @@ export const InfoSuperCarnes = ({type, navigation}) => {
                             <ListItem.Content>
                                 <ListItem.Title>{carne.name}</ListItem.Title>
                                 <ListItem.Subtitle>{carne.time}</ListItem.Subtitle>
-                                <ListItem.Subtitle style={styles.price}> $ {carne.price}</ListItem.Subtitle>
+                                <ListItem.Subtitle style={styles.price}>L {carne.price}</ListItem.Subtitle>
                             </ListItem.Content>
                         </ListItem.Swipeable>
                     );
@@ -158,7 +158,7 @@ export const InfoSuperFrutas = ({type, navigation}) => {
                         key={fruta.id}
                        rightContent={
                          <Button
-                           title="Comprar"
+                           title="Mostrar"
                            onPress={()=>{navigation.navigate("SuperOrden", {orden: fruta.id})}}
                            buttonStyle={{ minHeight: '100%', backgroundColor: 'red' }}
                          />
@@ -169,7 +169,7 @@ export const InfoSuperFrutas = ({type, navigation}) => {
                             <ListItem.Content>
                                 <ListItem.Title>{fruta.name}</ListItem.Title>
                                 <ListItem.Subtitle>{fruta.time}</ListItem.Subtitle>
-                                <ListItem.Subtitle style={styles.price}> $ {fruta.price}</ListItem.Subtitle>
+                                <ListItem.Subtitle style={styles.price}>L {fruta.price}</ListItem.Subtitle>
                             </ListItem.Content>
                         </ListItem.Swipeable>
                     );
@@ -218,7 +218,7 @@ export const InfoSuperMariscos = ({type, navigation}) => {
                         key={marisco.id}
                        rightContent={
                          <Button
-                           title="Comprar"
+                           title="Mostrar"
                            onPress={()=>{navigation.navigate("SuperOrden", {orden: marisco.id})}}
                            buttonStyle={{ minHeight: '100%', backgroundColor: 'red' }}
                          />
@@ -229,7 +229,7 @@ export const InfoSuperMariscos = ({type, navigation}) => {
                             <ListItem.Content>
                                 <ListItem.Title>{marisco.name}</ListItem.Title>
                                 <ListItem.Subtitle>{marisco.time}</ListItem.Subtitle>
-                                <ListItem.Subtitle style={styles.price}> $ {marisco.price}</ListItem.Subtitle>
+                                <ListItem.Subtitle style={styles.price}>L {marisco.price}</ListItem.Subtitle>
                             </ListItem.Content>
                         </ListItem.Swipeable>
                     );
@@ -244,7 +244,7 @@ export const InfoSuperAlcoholicas = ({type, navigation}) => {
 
     const [alcoholicas, setAlcoholicas] = useState([])
     useEffect(() => {
-         firebase.firestore().collection("SuperMarket").where("type", "==", "alcoholicas")
+         firebase.firestore().collection("SuperMarket").where("type", "==", "bebidasAlcoholicas")
     .get()
              .then((querySnapshot) => {
         const alcoholicas = [];
@@ -276,7 +276,7 @@ export const InfoSuperAlcoholicas = ({type, navigation}) => {
                         key={alcoholica.id}
                        rightContent={
                          <Button
-                           title="Comprar"
+                           title="Mostrar"
                            onPress={()=>{navigation.navigate("SuperOrden", {orden: alcoholica.id})}}
                            buttonStyle={{ minHeight: '100%', backgroundColor: 'red' }}
                          />
@@ -287,7 +287,7 @@ export const InfoSuperAlcoholicas = ({type, navigation}) => {
                             <ListItem.Content>
                                 <ListItem.Title>{alcoholica.name}</ListItem.Title>
                                 <ListItem.Subtitle>{alcoholica.time}</ListItem.Subtitle>
-                                <ListItem.Subtitle style={styles.price}> $ {alcoholica.price}</ListItem.Subtitle>
+                                <ListItem.Subtitle style={styles.price}>L {alcoholica.price}</ListItem.Subtitle>
                             </ListItem.Content>
                         </ListItem.Swipeable>
                     );
@@ -303,7 +303,7 @@ export const InfoSuperBebidas = ({type, navigation}) => {
 
     const [bebidas, setBebidas] = useState([])
     useEffect(() => {
-         firebase.firestore().collection("SuperMarket").where("type", "==", "carnes")
+         firebase.firestore().collection("SuperMarket").where("type", "==", "bebidas")
     .get()
              .then((querySnapshot) => {
         const bebidas = [];
@@ -335,7 +335,7 @@ export const InfoSuperBebidas = ({type, navigation}) => {
                         key={bebida.id}
                        rightContent={
                          <Button
-                           title="Comprar"
+                           title="Mostrar"
                            onPress={()=>{navigation.navigate("SuperOrden", {orden: bebida.id})}}
                            buttonStyle={{ minHeight: '100%', backgroundColor: 'red' }}
                          />
@@ -346,7 +346,7 @@ export const InfoSuperBebidas = ({type, navigation}) => {
                             <ListItem.Content>
                                 <ListItem.Title>{bebida.name}</ListItem.Title>
                                 <ListItem.Subtitle>{bebida.time}</ListItem.Subtitle>
-                                <ListItem.Subtitle style={styles.price}> $ {bebida.price}</ListItem.Subtitle>
+                                <ListItem.Subtitle style={styles.price}>L {bebida.price}</ListItem.Subtitle>
                             </ListItem.Content>
                         </ListItem.Swipeable>
                     );
@@ -393,7 +393,7 @@ export const InfoSuperSnacks = ({type, navigation}) => {
                            key={snack.id}
                           rightContent={
                             <Button
-                              title="Comprar"
+                              title="Mostrar"
                               onPress={()=>{navigation.navigate("SuperOrden", {orden: snack.id})}}
                               buttonStyle={{ minHeight: '100%', backgroundColor: 'red' }}
                             />
@@ -404,7 +404,7 @@ export const InfoSuperSnacks = ({type, navigation}) => {
                             <ListItem.Content>
                                 <ListItem.Title>{snack.name}</ListItem.Title>
                                 <ListItem.Subtitle>{snack.time}</ListItem.Subtitle>
-                                <ListItem.Subtitle style={styles.price}> $ {snack.price}</ListItem.Subtitle>
+                                <ListItem.Subtitle style={styles.price}>L {snack.price}</ListItem.Subtitle>
                             </ListItem.Content>
                         </ListItem.Swipeable>
                     );
@@ -451,7 +451,7 @@ export const InfoSuperCuidado = ({type, navigation}) => {
                            key={cuidados.id}
                           rightContent={
                             <Button
-                              title="Comprar"
+                              title="Mostrar"
                               onPress={()=>{navigation.navigate("SuperOrden", {orden: cuidados.id})}}
                               buttonStyle={{ minHeight: '100%', backgroundColor: 'red' }}
                             />
@@ -462,7 +462,7 @@ export const InfoSuperCuidado = ({type, navigation}) => {
                             <ListItem.Content>
                                 <ListItem.Title>{cuidados.name}</ListItem.Title>
                                 <ListItem.Subtitle>{cuidados.time}</ListItem.Subtitle>
-                                <ListItem.Subtitle style={styles.price}> $ {cuidados.price}</ListItem.Subtitle>
+                                <ListItem.Subtitle style={styles.price}>L {cuidados.price}</ListItem.Subtitle>
                             </ListItem.Content>
                         </ListItem.Swipeable>
                     );
@@ -510,7 +510,7 @@ export const InfoSuperLimpieza = ({type, navigation}) => {
                            key={limpieza.id}
                           rightContent={
                             <Button
-                              title="Comprar"
+                              title="Mostrar"
                               onPress={()=>{navigation.navigate("SuperOrden", {orden: limpieza.id})}}
                               buttonStyle={{ minHeight: '100%', backgroundColor: 'red' }}
                             />
@@ -521,7 +521,7 @@ export const InfoSuperLimpieza = ({type, navigation}) => {
                             <ListItem.Content>
                                 <ListItem.Title>{limpieza.name}</ListItem.Title>
                                 <ListItem.Subtitle>{limpieza.time}</ListItem.Subtitle>
-                                <ListItem.Subtitle style={styles.price}> $ {limpieza.price}</ListItem.Subtitle>
+                                <ListItem.Subtitle style={styles.price}>L {limpieza.price}</ListItem.Subtitle>
                             </ListItem.Content>
                         </ListItem.Swipeable>
                     );
@@ -569,7 +569,7 @@ export const InfoSuperMascotas = ({type, navigation}) => {
                         key={mascota.id}
                        rightContent={
                          <Button
-                           title="Comprar"
+                           title="Mostrar"
                            onPress={()=>{navigation.navigate("SuperOrden", {orden: mascota.id})}}
                            buttonStyle={{ minHeight: '100%', backgroundColor: 'red' }}
                          />
@@ -580,7 +580,7 @@ export const InfoSuperMascotas = ({type, navigation}) => {
                             <ListItem.Content>
                                 <ListItem.Title>{mascota.name}</ListItem.Title>
                                 <ListItem.Subtitle>{mascota.time}</ListItem.Subtitle>
-                                <ListItem.Subtitle style={styles.price}> $ {mascota.price}</ListItem.Subtitle>
+                                <ListItem.Subtitle style={styles.price}>L {mascota.price}</ListItem.Subtitle>
                             </ListItem.Content>
                         </ListItem.Swipeable>
                     );
@@ -628,7 +628,7 @@ export const InfoSuperAbarrotes = ({type, navigation}) => {
                         key={abarrotes.id}
                        rightContent={
                          <Button
-                           title="Comprar"
+                           title="Mostrar"
                            onPress={()=>{navigation.navigate("SuperOrden", {orden: abarrotes.id})}}
                            buttonStyle={{ minHeight: '100%', backgroundColor: 'red' }}
                          />
@@ -639,7 +639,7 @@ export const InfoSuperAbarrotes = ({type, navigation}) => {
                             <ListItem.Content>
                                 <ListItem.Title>{abarrotes.name}</ListItem.Title>
                                 <ListItem.Subtitle>{abarrotes.time}</ListItem.Subtitle>
-                                <ListItem.Subtitle style={styles.price}> $ {abarrotes.price}</ListItem.Subtitle>
+                                <ListItem.Subtitle style={styles.price}>L {abarrotes.price}</ListItem.Subtitle>
                             </ListItem.Content>
                         </ListItem.Swipeable>
                     );
@@ -687,7 +687,7 @@ export const InfoSuperPanaderia = ({type, navigation}) => {
                         key={pan.id}
                        rightContent={
                          <Button
-                           title="Comprar"
+                           title="Mostrar"
                            onPress={()=>{navigation.navigate("SuperOrden", {orden: pan.id})}}
                            buttonStyle={{ minHeight: '100%', backgroundColor: 'red' }}
                          />
@@ -698,7 +698,7 @@ export const InfoSuperPanaderia = ({type, navigation}) => {
                             <ListItem.Content>
                                 <ListItem.Title>{pan.name}</ListItem.Title>
                                 <ListItem.Subtitle>{pan.time}</ListItem.Subtitle>
-                                <ListItem.Subtitle style={styles.price}> $ {pan.price}</ListItem.Subtitle>
+                                <ListItem.Subtitle style={styles.price}>L {pan.price}</ListItem.Subtitle>
                             </ListItem.Content>
                         </ListItem.Swipeable>
                     );

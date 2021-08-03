@@ -42,7 +42,7 @@ export const InfoMedicineAlimentario = ({type, navigation}) => {
                         key={medic.id}
                        rightContent={
                          <Button
-                           title="Comprar"
+                           title="Mostrar"
                            onPress={()=>{navigation.navigate("MedicinaOrden", {orden: medic.id})}}
                            buttonStyle={{ minHeight: '100%', backgroundColor: 'red' }}
                          />
@@ -52,7 +52,7 @@ export const InfoMedicineAlimentario = ({type, navigation}) => {
                             <ListItem.Content>
                                 <ListItem.Title>{medic.name}</ListItem.Title>
                                 <ListItem.Subtitle>{medic.time}</ListItem.Subtitle>
-                                <ListItem.Subtitle style={styles.price}>${medic.price}</ListItem.Subtitle>
+                                <ListItem.Subtitle style={styles.price}>L {medic.price}</ListItem.Subtitle>
                             </ListItem.Content>
                         </ListItem.Swipeable>
                     );
@@ -99,7 +99,7 @@ export const InfoMedicineSangre = ({type, navigation}) => {
                         key={medic.id}
                        rightContent={
                          <Button
-                           title="Comprar"
+                           title="Mostrar"
                            onPress={()=>{navigation.navigate("MedicinaOrden", {orden: medic.id})}}
                            buttonStyle={{ minHeight: '100%', backgroundColor: 'red' }}
                          />
@@ -109,7 +109,7 @@ export const InfoMedicineSangre = ({type, navigation}) => {
                             <ListItem.Content>
                                 <ListItem.Title>{medic.name}</ListItem.Title>
                                 <ListItem.Subtitle>{medic.time}</ListItem.Subtitle>
-                                <ListItem.Subtitle style={styles.price}>${medic.price}</ListItem.Subtitle>
+                                <ListItem.Subtitle style={styles.price}>L {medic.price}</ListItem.Subtitle>
                             </ListItem.Content>
                         </ListItem.Swipeable>
                     );
@@ -156,7 +156,7 @@ export const InfoMedicineCardiovascular = ({type, navigation}) => {
                         key={medic.id}
                        rightContent={
                          <Button
-                           title="Comprar"
+                           title="Mostrar"
                            onPress={()=>{navigation.navigate("MedicinaOrden", {orden: medic.id})}}
                            buttonStyle={{ minHeight: '100%', backgroundColor: 'red' }}
                          />
@@ -166,7 +166,7 @@ export const InfoMedicineCardiovascular = ({type, navigation}) => {
                             <ListItem.Content>
                                 <ListItem.Title>{medic.name}</ListItem.Title>
                                 <ListItem.Subtitle>{medic.time}</ListItem.Subtitle>
-                                <ListItem.Subtitle style={styles.price}>${medic.price}</ListItem.Subtitle>
+                                <ListItem.Subtitle style={styles.price}>L {medic.price}</ListItem.Subtitle>
                             </ListItem.Content>
                         </ListItem.Swipeable>
                     );
@@ -214,7 +214,7 @@ export const InfoMedicineDermatologico = ({type, navigation}) => {
                         key={medic.id}
                        rightContent={
                          <Button
-                           title="Comprar"
+                           title="Mostrar"
                            onPress={()=>{navigation.navigate("MedicinaOrden", {orden: medic.id})}}
                            buttonStyle={{ minHeight: '100%', backgroundColor: 'red' }}
                          />
@@ -224,7 +224,7 @@ export const InfoMedicineDermatologico = ({type, navigation}) => {
                             <ListItem.Content>
                                 <ListItem.Title>{medic.name}</ListItem.Title>
                                 <ListItem.Subtitle>{medic.time}</ListItem.Subtitle>
-                                <ListItem.Subtitle style={styles.price}>${medic.price}</ListItem.Subtitle>
+                                <ListItem.Subtitle style={styles.price}>L {medic.price}</ListItem.Subtitle>
                             </ListItem.Content>
                         </ListItem.Swipeable>
                     );
@@ -271,7 +271,7 @@ export const InfoMedicineUrinario = ({type, navigation}) => {
                         key={medic.id}
                        rightContent={
                          <Button
-                           title="Comprar"
+                           title="Mostrar"
                            onPress={()=>{navigation.navigate("MedicinaOrden", {orden: medic.id})}}
                            buttonStyle={{ minHeight: '100%', backgroundColor: 'red' }}
                          />
@@ -281,7 +281,7 @@ export const InfoMedicineUrinario = ({type, navigation}) => {
                             <ListItem.Content>
                                 <ListItem.Title>{medic.name}</ListItem.Title>
                                 <ListItem.Subtitle>{medic.time}</ListItem.Subtitle>
-                                <ListItem.Subtitle style={styles.price}>${medic.price}</ListItem.Subtitle>
+                                <ListItem.Subtitle style={styles.price}>L {medic.price}</ListItem.Subtitle>
                             </ListItem.Content>
                         </ListItem.Swipeable>
                     );
@@ -328,7 +328,7 @@ export const InfoMedicineHormonales = ({type, navigation}) => {
                         key={medic.id}
                        rightContent={
                          <Button
-                           title="Comprar"
+                           title="Mostrar"
                            onPress={()=>{navigation.navigate("MedicinaOrden", {orden: medic.id})}}
                            buttonStyle={{ minHeight: '100%', backgroundColor: 'red' }}
                          />
@@ -338,7 +338,7 @@ export const InfoMedicineHormonales = ({type, navigation}) => {
                             <ListItem.Content>
                                 <ListItem.Title>{medic.name}</ListItem.Title>
                                 <ListItem.Subtitle>{medic.time}</ListItem.Subtitle>
-                                <ListItem.Subtitle style={styles.price}>${medic.price}</ListItem.Subtitle>
+                                <ListItem.Subtitle style={styles.price}>L {medic.price}</ListItem.Subtitle>
                             </ListItem.Content>
                         </ListItem.Swipeable>
                     );
@@ -385,7 +385,7 @@ export const InfoMedicineAntiinfecciosos = ({type, navigation}) => {
                         key={medic.id}
                        rightContent={
                          <Button
-                           title="Comprar"
+                           title="Mostrar"
                            onPress={()=>{navigation.navigate("MedicinaOrden", {orden: medic.id})}}
                            buttonStyle={{ minHeight: '100%', backgroundColor: 'red' }}
                          />
@@ -395,7 +395,7 @@ export const InfoMedicineAntiinfecciosos = ({type, navigation}) => {
                             <ListItem.Content>
                                 <ListItem.Title>{medic.name}</ListItem.Title>
                                 <ListItem.Subtitle>{medic.time}</ListItem.Subtitle>
-                                <ListItem.Subtitle style={styles.price}>${medic.price}</ListItem.Subtitle>
+                                <ListItem.Subtitle style={styles.price}>L{medic.price}</ListItem.Subtitle>
                             </ListItem.Content>
                         </ListItem.Swipeable>
                     );
@@ -442,7 +442,7 @@ export const InfoMedicineHuesos = ({type, navigation}) => {
                         key={medic.id}
                        rightContent={
                          <Button
-                           title="Comprar"
+                           title="Mostrar"
                            onPress={()=>{navigation.navigate("MedicinaOrden", {orden: medic.id})}}
                            buttonStyle={{ minHeight: '100%', backgroundColor: 'red' }}
                          />
@@ -452,7 +452,7 @@ export const InfoMedicineHuesos = ({type, navigation}) => {
                             <ListItem.Content>
                                 <ListItem.Title>{medic.name}</ListItem.Title>
                                 <ListItem.Subtitle>{medic.time}</ListItem.Subtitle>
-                                <ListItem.Subtitle style={styles.price}>${medic.price}</ListItem.Subtitle>
+                                <ListItem.Subtitle style={styles.price}>L {medic.price}</ListItem.Subtitle>
                             </ListItem.Content>
                         </ListItem.Swipeable>
                     );

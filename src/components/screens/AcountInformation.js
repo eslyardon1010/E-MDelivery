@@ -12,30 +12,43 @@ function AboutInformation(navigation, email) {
   const { signout } = useContext(AuthContext);
 
   const user = firebase.auth().currentUser;
-  if (user !== null) {
-    const uid = user.uid;
-    const email = user.email;
-    const displayName = user.displayName;
-    console.log(email);
-    console.log(displayName);
-    console.log(uid);
-
-
-  
-  }
-
+  const [perfil, setPerfil] = useState([])
+    useEffect(() => {
+         firebase.firestore().collection("users").where("id", "==",user.uid)
+    .get()
+             .then((querySnapshot) => {
+        const perfil = [];
+        querySnapshot.forEach((doc) => {
+                const { fullname, email} = doc.data()
+                perfil.push(
+                    {
+                        id: doc.id,
+                        fullname,
+                        email
+                    }
+            )
+            })
+            setPerfil(perfil)
+        });
+      
+    }, []);
 
   return (
     <View style={styles.container} >
-      <Title style={styles.title}>Informacion de la cuenta</Title>
       <Image
         style={styles.usuario}
         source={require('../../img/user.png')}
       />
-      <View>
-      <Text style={styles.txt}>Correo electronico: {user.email}</Text>
-      <Text style={styles.txt}></Text>
-      </View>
+      {
+        perfil.map((usuario) => {
+
+          return (
+            <View>
+            <Text style={styles.txt}>Nombre: {usuario.fullname}</Text>
+              <Text style={styles.txt}>Email: {usuario.email}</Text>
+              </View>
+          )
+        })}
 
       <Button style={styles.signout} onPress={signout}>Signout</Button>
     </View>
@@ -51,18 +64,13 @@ const styles = StyleSheet.create({
     padding: 10,
     backgroundColor: theme.colors.black,
   },
-  title: {
-    fontSize: 30,
-    paddingLeft: 10,
-    color: theme.colors.white,
-    marginTop: -200,
-    textAlign: "center"
-  },
+
   txt: {
     color: theme.colors.white,
     textAlign: "center",
     fontSize: 18,
-    marginTop: 60
+    marginTop: 30, 
+    top:-20
   },
   input: {
     color: theme.colors.red,
@@ -72,11 +80,11 @@ const styles = StyleSheet.create({
     width: 120,
     height: 120,
     alignSelf: "center",
-    marginTop: 20
+    top: -70
   },
   signout: {
-    top: 130,
-    backgroundColor: theme.colors.redLight,
+    top: 70,
+    backgroundColor: theme.colors.white,
     borderRadius: 80,
     color: theme.colors.black
   },

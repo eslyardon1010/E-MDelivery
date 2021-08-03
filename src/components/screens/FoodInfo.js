@@ -10,14 +10,13 @@ import { InfoFoodPizza,
       InfoFoodFast,
        InfoFoodGourmet, 
        InfoFoodPasta } from '../../firebase/consults';
-       import { HeaderGeneral } from '../../shared/Header';
 const infoFood = ({route, navigation}) => {
     const {informacion} = route.params;
   
     if (informacion == 'Pizza') {
         return (
             <View style={styles.container}>
-                  <HeaderGeneral/>
+         
             <ScrollView>
                 
                 <InfoFoodPizza food={informacion} navigation={ navigation } />
@@ -28,7 +27,7 @@ const infoFood = ({route, navigation}) => {
     }else if (informacion == "Chicken") {
         return(
             <View>
-                  <HeaderGeneral/>
+            
             <ScrollView>
                    <InfoFoodChicken food={informacion} navigation={ navigation } />  
           </ScrollView>
@@ -37,7 +36,7 @@ const infoFood = ({route, navigation}) => {
     }else if (informacion == "Pasta") {
         return(
             <View>
-                  <HeaderGeneral/>
+            
             <ScrollView>
                    <InfoFoodPasta food={informacion} navigation={ navigation } />  
           </ScrollView>
@@ -46,7 +45,7 @@ const infoFood = ({route, navigation}) => {
     }else if (informacion == "Salad") {
         return(
             <View>
-                  <HeaderGeneral/>
+            
             <ScrollView>
                 
                    <InfoFoodSalad food={informacion} navigation={ navigation } />  
@@ -56,7 +55,7 @@ const infoFood = ({route, navigation}) => {
     }else if (informacion == "Fast Food") {
         return(
             <View>
-                  <HeaderGeneral/>
+            
             <ScrollView>
                    <InfoFoodFast food={informacion} navigation={ navigation } />  
           </ScrollView>
@@ -65,7 +64,7 @@ const infoFood = ({route, navigation}) => {
     }else if (informacion == "Gourmet") {
         return(
             <View>
-                  <HeaderGeneral/>
+            
             <ScrollView>
                    <InfoFoodGourmet food={informacion} navigation={ navigation } />  
           </ScrollView>
@@ -74,7 +73,6 @@ const infoFood = ({route, navigation}) => {
     }else if (informacion == "Mexican") {
         return(
             <View>
-                  <HeaderGeneral/>
             <ScrollView>
                    <InfoFoodMexican food={informacion} navigation={ navigation } />  
           </ScrollView>
@@ -83,7 +81,6 @@ const infoFood = ({route, navigation}) => {
     }else if (informacion == "Chinese") {
         return(
             <View>
-                  <HeaderGeneral/>
             <ScrollView>
                    <InfoFoodChinese food={informacion} navigation={ navigation } />  
           </ScrollView>

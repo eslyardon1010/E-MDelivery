@@ -1,10 +1,9 @@
 import React from "react";
 import { StyleSheet, View, TouchableOpacity, Image} from "react-native";
-import { Button, Text } from "react-native-paper";
+import { Button, Text, FAB } from "react-native-paper";
 //import { Context as AuthContext } from "../../providers/AuthContext";
 import theme from "../../theme";
-import SearchBar from "../../shared/SearchThings";
-import {HeaderHome} from '../../shared/Header'
+
 function Home({navigation}) {
 
 
@@ -12,9 +11,18 @@ function Home({navigation}) {
     
     <View style={styles.container}>
 
-      <HeaderHome navigation = {navigation}/>
+      <FAB
+        icon="cart"
+        style={styles.fab} 
+        onPress={() => navigation.navigate("TusOrdenes")}  
+      />
 
-       <SearchBar navigation = {navigation}/>
+        <FAB
+        icon={{ uri: 'https://image.flaticon.com/icons/png/512/1946/1946429.png' }}
+        style={styles.fab2} 
+        onPress={() => navigation.navigate("InformacionUsuario")}  
+      />
+    
        <TouchableOpacity onPress={() => {navigation.navigate("Comida")}} style={styles.button}> 
             <Text style={styles.Text}>COMIDA</Text>
             <Image
@@ -72,8 +80,22 @@ img:{
  height:40, 
  marginTop: -35, 
  marginLeft: 50
-}, 
+  },
 
+    fab: {
+    backgroundColor: theme.colors.redDark,
+    position: "absolute",
+    right: 0,
+    bottom: 10,
+    margin: 20,
+  },
+      fab2: {
+    backgroundColor: theme.colors.redDark,
+    position: "absolute",
+    left: 0,
+    bottom: 10,
+    margin: 20,
+  },
 
 });
 

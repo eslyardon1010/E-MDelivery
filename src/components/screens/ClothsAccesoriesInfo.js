@@ -11,16 +11,15 @@ InfoFormales,
     InfoPerfumes,
     InfoZapatos
  } from '../../firebase/ConsultClothes';
-import { HeaderGeneral } from '../../shared/Header';
        
-const infoCloths = ({ route, navigation }) => {
+const infoCloths = ({route, navigation}) => {
+
+      const {informacion} = route.params;
     
-    const {informacion} = route.params;
-  
     if (informacion == 'Maquillaje') {
         return (
             <View style={styles.container}>
-                  <HeaderGeneral/>
+                 
             <ScrollView>
                 <InfoMaquillaje type={informacion} navigation={navigation}  />              
           </ScrollView>
@@ -29,7 +28,6 @@ const infoCloths = ({ route, navigation }) => {
     }else if (informacion == "Perfumes") {
         return(
             <View>
-                  <HeaderGeneral/>
             <ScrollView>
                      <InfoPerfumes type={informacion} navigation={navigation}  />              
           </ScrollView>
@@ -38,7 +36,6 @@ const infoCloths = ({ route, navigation }) => {
     }else if (informacion == "Carteras") {
         return(
             <View>
-                  <HeaderGeneral/>
             <ScrollView>
                      <InfoCarteras type={informacion} navigation={navigation}  />              
 
@@ -48,16 +45,14 @@ const infoCloths = ({ route, navigation }) => {
     }else if (informacion == "Jeans") {
         return(
             <View>
-                  <HeaderGeneral/>
             <ScrollView>
                    <InfoJeans type={informacion} navigation={navigation}  />              
           </ScrollView>
           </View>
         );
-    }else if (informacion == "Camisetas") {
+    }else if (informacion == "Blusas") {
         return(
             <View>
-                  <HeaderGeneral/>
             <ScrollView>
                    <InfoBlusas type={informacion} navigation={ navigation } />  
           </ScrollView>
@@ -66,7 +61,6 @@ const infoCloths = ({ route, navigation }) => {
     }else if (informacion == "Formales") {
         return(
             <View>
-                  <HeaderGeneral/>
             <ScrollView>
                    <InfoFormales type={informacion} navigation={ navigation } />  
           </ScrollView>
@@ -75,7 +69,6 @@ const infoCloths = ({ route, navigation }) => {
     }else if (informacion == "Zapatos") {
         return(
             <View>
-                  <HeaderGeneral/>
             <ScrollView>
                    <InfoZapatos type={informacion} navigation={ navigation } />  
           </ScrollView>
@@ -84,7 +77,6 @@ const infoCloths = ({ route, navigation }) => {
     }else if (informacion == "Accesorios") {
         return(
             <View>
-                  <HeaderGeneral/>
             <ScrollView>
                    <InfoAccesorios type={informacion} navigation={ navigation } />  
           </ScrollView>

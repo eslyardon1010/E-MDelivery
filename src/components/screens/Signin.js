@@ -8,7 +8,6 @@ function Signin({ navigation }) {
   return (
     <View style={styles.container}>
       <SigninForm />
-      <Text style={styles.forgotPassword}>Forgot your password?</Text>
       <TouchableOpacity onPress={() => navigation.navigate("Signup")}>
         <Text style={styles.txt}>
           Don't have an account? <Text style={styles.signup}>Sign up</Text>
@@ -24,10 +23,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     padding: 10,
     backgroundColor: theme.colors.black,
-  },
-  forgotPassword: {
-    textAlign: "auto",
-    color: theme.colors.white
   },
   signup: {
     color: theme.colors.red,
